@@ -16,9 +16,9 @@
       <table class="w-full text-left border-collapse" id="leaderboardTable">
         <thead>
           <tr class="border-b border-gray-600 text-blue-300">
-            <th class="py-2">Player</th>
-            <th class="py-2">Points</th>
-            <th class="py-2 text-center">Action</th>
+            <th class="py-2 px-2">Player</th>
+            <th class="py-2 px-2">Points</th>
+            <th class="py-2 px-2 text-center">Action</th>
           </tr>
         </thead>
         <tbody id="leaderboardBody"></tbody>
@@ -43,11 +43,11 @@
     <table class="w-full text-left border-collapse" id="claimHistoryTable">
       <thead>
         <tr class="border-b border-gray-600 text-yellow-300">
-          <th class="py-2">Player</th>
-          <th class="py-2">Item</th>
-          <th class="py-2">Points Used</th>
-          <th class="py-2">Date</th>
-          <th class="py-2 text-center">Action</th>
+          <th class="py-2 px-2">Player</th>
+          <th class="py-2 px-2">Item</th>
+          <th class="py-2 px-2">Points Used</th>
+          <th class="py-2 px-2">Date</th>
+          <th class="py-2 px-2 text-center">Action</th>
         </tr>
       </thead>
       <tbody id="claimHistoryBody"></tbody>
@@ -87,13 +87,12 @@
 
     let selectedPlayer = null;
 
-    // Save data to localStorage
     function saveData() {
       localStorage.setItem('leaderboard', JSON.stringify(leaderboard));
       localStorage.setItem('claimHistory', JSON.stringify(claimHistory));
     }
 
-    // Render leaderboard table
+    // 🏆 Render leaderboard
     function renderLeaderboard() {
       leaderboardBody.innerHTML = '';
       Object.entries(leaderboard)
@@ -102,11 +101,11 @@
           const row = document.createElement('tr');
           row.classList.add('border-b', 'border-gray-700');
           row.innerHTML = `
-            <td class="py-2">${name}</td>
-            <td class="py-2">${points}</td>
-            <td class="py-2 text-center flex gap-2 justify-center">
-              <button class="bg-green-600 px-2 py-1 rounded claim-btn" data-name="${name}">Claim</button>
-              <button class="bg-red-600 px-2 py-1 rounded delete-player-btn" data-name="${name}">🗑</button>
+            <td class="py-2 px-2">${name}</td>
+            <td class="py-2 px-2">${points}</td>
+            <td class="py-2 px-2 text-center space-x-2">
+              <button class="bg-green-600 hover:bg-green-700 px-2 py-1 rounded text-sm claim-btn" data-name="${name}">🪙 Claim</button>
+              <button class="bg-red-600 hover:bg-red-700 px-2 py-1 rounded text-sm delete-player-btn" data-name="${name}">🗑 Delete</button>
             </td>
           `;
           leaderboardBody.appendChild(row);
@@ -115,19 +114,19 @@
       attachDeletePlayerEvents();
     }
 
-    // Render claim history
+    // 📦 Render claim history
     function renderClaimHistory() {
       claimHistoryBody.innerHTML = '';
       claimHistory.forEach((entry, index) => {
         const row = document.createElement('tr');
         row.classList.add('border-b', 'border-gray-700');
         row.innerHTML = `
-          <td class="py-2">${entry.name}</td>
-          <td class="py-2">${entry.item}</td>
-          <td class="py-2">${entry.points}</td>
-          <td class="py-2">${entry.date}</td>
-          <td class="py-2 text-center">
-            <button class="bg-red-600 px-2 py-1 rounded delete-claim-btn" data-index="${index}">🗑</button>
+          <td class="py-2 px-2">${entry.name}</td>
+          <td class="py-2 px-2">${entry.item}</td>
+          <td class="py-2 px-2">${entry.points}</td>
+          <td class="py-2 px-2">${entry.date}</td>
+          <td class="py-2 px-2 text-center">
+            <button class="bg-red-600 hover:bg-red-700 px-2 py-1 rounded text-sm delete-claim-btn" data-index="${index}">🗑 Delete</button>
           </td>
         `;
         claimHistoryBody.appendChild(row);
@@ -135,7 +134,7 @@
       attachDeleteClaimEvents();
     }
 
-    // Add points logic
+    // ➕ Add points
     addPointsBtn.addEventListener('click', () => {
       const names = logInput.value.trim().split('\n').map(n => n.trim()).filter(n => n);
       const points = parseInt(pointsToAdd.value);
@@ -157,7 +156,7 @@
       pointsToAdd.value = '';
     });
 
-    // Claim button events
+    // 🪙 Claim events
     function attachClaimEvents() {
       document.querySelectorAll('.claim-btn').forEach(btn => {
         btn.addEventListener('click', () => {
@@ -170,7 +169,7 @@
       });
     }
 
-    // Delete player button events
+    // 🗑 Delete player
     function attachDeletePlayerEvents() {
       document.querySelectorAll('.delete-player-btn').forEach(btn => {
         btn.addEventListener('click', () => {
@@ -184,7 +183,7 @@
       });
     }
 
-    // Delete claim log button events
+    // 🗑 Delete claim entry
     function attachDeleteClaimEvents() {
       document.querySelectorAll('.delete-claim-btn').forEach(btn => {
         btn.addEventListener('click', () => {
@@ -198,7 +197,7 @@
       });
     }
 
-    // Claim modal controls
+    // Modal controls
     cancelClaimBtn.addEventListener('click', () => claimModal.classList.add('hidden'));
     confirmClaimBtn.addEventListener('click', () => {
       const usedPoints = parseInt(claimPointsInput.value);
