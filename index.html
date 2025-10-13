@@ -22,7 +22,7 @@
             <tr class="border-b border-gray-700">
               <th class="py-2">Player</th>
               <th class="py-2 text-right">Points</th>
-              <th class="py-2 text-center">Actions</th>
+              <th class="py-2 text-center">Action</th>
             </tr>
           </thead>
           <tbody id="leaderboardBody"></tbody>
@@ -35,211 +35,185 @@
               <th class="py-2">Player</th>
               <th class="py-2">Item</th>
               <th class="py-2 text-right">Points Used</th>
-              <th class="py-2 text-center">Actions</th>
+              <th class="py-2 text-center">Delete</th>
             </tr>
           </thead>
           <tbody id="claimHistoryBody"></tbody>
         </table>
       </section>
 
-      <!-- Right Panel -->
-      <aside
-        class="flex-[1] bg-gray-800 p-4 rounded-2xl shadow-lg flex flex-col gap-4"
-      >
-        <!-- Paste Player Log -->
-        <div class="flex flex-col flex-1">
-          <h2 class="text-lg font-semibold mb-2">📋 Paste Player Log</h2>
-          <textarea
-            id="logInput"
-            class="flex-1 w-full bg-gray-900 text-gray-100 p-2 rounded-lg resize-none"
-            placeholder="Paste player names here (one per line)..."
-          ></textarea>
+      <!-- Right panel: Paste logs -->
+      <aside class="w-1/3 bg-gray-800 p-4 rounded-2xl shadow-lg flex flex-col">
+        <h2 class="text-xl font-semibold mb-3">📋 Paste Player Logs</h2>
+
+        <label class="text-sm font-semibold mb-1">Paste player names:</label>
+        <textarea
+          id="logInput"
+          class="w-full bg-gray-900 text-gray-100 p-2 rounded-lg resize-none mb-2 h-28"
+          placeholder="Paste player names here (one per line)..."
+        ></textarea>
+
+        <div class="flex items-center gap-2 mb-3">
+          <input
+            id="manualPoints"
+            type="number"
+            placeholder="Points to add"
+            class="w-1/2 bg-gray-900 text-gray-100 p-2 rounded-lg"
+          />
           <button
             id="processLog"
-            class="bg-blue-600 hover:bg-blue-700 mt-2 py-2 rounded-lg font-semibold"
+            class="flex-1 bg-blue-600 hover:bg-blue-700 py-2 rounded-lg font-semibold"
           >
             Process Log
           </button>
         </div>
 
-        <!-- Paste CSV Log -->
-        <div class="flex flex-col flex-1">
-          <h2 class="text-lg font-semibold mb-2">📊 Paste CSV (Name, Points)</h2>
-          <textarea
-            id="csvInput"
-            class="flex-1 w-full bg-gray-900 text-gray-100 p-2 rounded-lg resize-none"
-            placeholder="Example:
-Player1, 10
-Player2, 20"
-          ></textarea>
-          <button
-            id="processCSV"
-            class="bg-green-600 hover:bg-green-700 mt-2 py-2 rounded-lg font-semibold"
-          >
-            Import CSV
-          </button>
-        </div>
-
-        <!-- Warning -->
         <div
           id="caseWarning"
-          class="hidden text-yellow-400 text-sm bg-gray-900 p-2 rounded-lg"
+          class="hidden mb-3 text-yellow-400 text-sm bg-gray-900 p-2 rounded-lg"
         >
           ⚠️ Possible typo detected (case-insensitive match found).
         </div>
+
+        <hr class="my-3 border-gray-700" />
+
+        <h2 class="text-xl font-semibold mb-3">📂 Paste CSV (Name,Points)</h2>
+        <textarea
+          id="csvInput"
+          class="flex-1 w-full bg-gray-900 text-gray-100 p-2 rounded-lg resize-none h-32"
+          placeholder="Paste CSV data (e.g. Player1,10)"
+        ></textarea>
+        <button
+          id="processCSV"
+          class="bg-green-600 hover:bg-green-700 mt-3 py-2 rounded-lg font-semibold"
+        >
+          Import CSV
+        </button>
       </aside>
     </main>
 
-    <!-- JS Logic -->
     <script>
       const leaderboardBody = document.getElementById("leaderboardBody");
       const claimHistoryBody = document.getElementById("claimHistoryBody");
+      const logInput = document.getElementById("logInput");
+      const processLog = document.getElementById("processLog");
+      const csvInput = document.getElementById("csvInput");
+      const processCSV = document.getElementById("processCSV");
+      const manualPoints = document.getElementById("manualPoints");
       const caseWarning = document.getElementById("caseWarning");
 
-      let players = JSON.parse(localStorage.getItem("players") || "{}");
-      let claimHistory = JSON.parse(localStorage.getItem("claimHistory") || "[]");
+      let players = JSON.parse(localStorage.getItem("players")) || {};
+      let claimHistory = JSON.parse(localStorage.getItem("claimHistory")) || [];
 
-      const saveData = () => {
+      function saveData() {
         localStorage.setItem("players", JSON.stringify(players));
         localStorage.setItem("claimHistory", JSON.stringify(claimHistory));
-      };
+      }
 
-      const normalizeName = (name) => name.trim();
-
-      const renderLeaderboard = () => {
+      function renderLeaderboard() {
         leaderboardBody.innerHTML = "";
-        Object.entries(players)
-          .sort((a, b) => b[1].points - a[1].points)
-          .forEach(([name, player]) => {
-            const row = document.createElement("tr");
-            row.className = "border-b border-gray-700";
-            row.innerHTML = `
-              <td class="py-2">${name}</td>
-              <td class="py-2 text-right">${player.points}</td>
-              <td class="py-2 text-center">
-                <button class="bg-yellow-600 hover:bg-yellow-700 px-2 py-1 rounded text-sm mr-1 claim-btn" data-name="${name}">Claim</button>
-                <button class="bg-red-600 hover:bg-red-700 px-2 py-1 rounded text-sm delete-player" data-name="${name}">🗑</button>
-              </td>
-            `;
-            leaderboardBody.appendChild(row);
-          });
-      };
-
-      const renderClaimHistory = () => {
-        claimHistoryBody.innerHTML = "";
-        claimHistory.forEach((claim, i) => {
-          const row = document.createElement("tr");
-          row.className = "border-b border-gray-700";
-          row.innerHTML = `
-            <td class="py-2">${claim.name}</td>
-            <td class="py-2">${claim.item}</td>
-            <td class="py-2 text-right">${claim.pointsUsed}</td>
+        const sortedPlayers = Object.entries(players).sort(
+          (a, b) => b[1] - a[1]
+        );
+        for (const [name, points] of sortedPlayers) {
+          const tr = document.createElement("tr");
+          tr.className = "border-b border-gray-700";
+          tr.innerHTML = `
+            <td class="py-2">${name}</td>
+            <td class="py-2 text-right">${points}</td>
             <td class="py-2 text-center">
-              <button class="bg-red-600 hover:bg-red-700 px-2 py-1 rounded text-sm delete-claim" data-index="${i}">🗑</button>
-            </td>
-          `;
-          claimHistoryBody.appendChild(row);
+              <button class="bg-yellow-600 hover:bg-yellow-700 px-2 py-1 rounded text-sm mr-1" onclick="claimItem('${name}')">Claim</button>
+              <button class="bg-red-600 hover:bg-red-700 px-2 py-1 rounded text-sm" onclick="deletePlayer('${name}')">🗑️</button>
+            </td>`;
+          leaderboardBody.appendChild(tr);
+        }
+      }
+
+      function renderClaimHistory() {
+        claimHistoryBody.innerHTML = "";
+        claimHistory.forEach((c, i) => {
+          const tr = document.createElement("tr");
+          tr.className = "border-b border-gray-700";
+          tr.innerHTML = `
+            <td class="py-2">${c.name}</td>
+            <td class="py-2">${c.item}</td>
+            <td class="py-2 text-right">${c.pointsUsed}</td>
+            <td class="py-2 text-center">
+              <button class="bg-red-600 hover:bg-red-700 px-2 py-1 rounded text-sm" onclick="deleteClaim(${i})">🗑️</button>
+            </td>`;
+          claimHistoryBody.appendChild(tr);
         });
-      };
+      }
 
-      // Handle player log paste
-      document.getElementById("processLog").addEventListener("click", () => {
-        const lines = document
-          .getElementById("logInput")
-          .value.split("\n")
-          .map((x) => x.trim())
-          .filter((x) => x);
+      function processPlayerLog() {
+        const lines = logInput.value.trim().split("\n");
+        const pts = parseInt(manualPoints.value || 0);
+        let caseIssue = false;
 
-        let typoDetected = false;
-
-        lines.forEach((name) => {
-          const normalized = normalizeName(name);
-          const existingKey = Object.keys(players).find(
-            (k) => k.toLowerCase() === normalized.toLowerCase()
-          );
-
-          if (existingKey && existingKey !== normalized) {
-            typoDetected = true;
-          }
-
-          if (!existingKey) {
-            players[normalized] = { points: 0 };
-          }
-        });
-
-        caseWarning.classList.toggle("hidden", !typoDetected);
-        saveData();
-        renderLeaderboard();
-        document.getElementById("logInput").value = "";
-      });
-
-      // Handle CSV import
-      document.getElementById("processCSV").addEventListener("click", () => {
-        const csvText = document.getElementById("csvInput").value.trim();
-        if (!csvText) return;
-
-        const lines = csvText.split("\n");
         lines.forEach((line) => {
-          const [rawName, rawPoints] = line.split(",").map((x) => x.trim());
-          if (!rawName || isNaN(parseFloat(rawPoints))) return;
+          const name = line.trim();
+          if (!name) return;
 
-          const name = normalizeName(rawName);
-          const points = parseFloat(rawPoints);
-          if (!players[name]) {
-            players[name] = { points };
-          } else {
-            players[name].points += points;
-          }
+          const existingName = Object.keys(players).find(
+            (n) => n.toLowerCase() === name.toLowerCase()
+          );
+          if (existingName && existingName !== name) caseIssue = true;
+
+          const finalName = existingName || name;
+          players[finalName] = (players[finalName] || 0) + pts;
         });
 
+        caseWarning.classList.toggle("hidden", !caseIssue);
         saveData();
         renderLeaderboard();
-        document.getElementById("csvInput").value = "";
-      });
+        logInput.value = "";
+        manualPoints.value = "";
+      }
 
-      // Handle clicks
-      document.body.addEventListener("click", (e) => {
-        // Claim button
-        if (e.target.classList.contains("claim-btn")) {
-          const name = e.target.dataset.name;
-          const pointsUsed = parseInt(
-            prompt(`Enter how many points ${name} will use:`)
-          );
-          const item = prompt("Enter item name:");
-          if (!pointsUsed || !item) return;
-
-          if (players[name].points < pointsUsed) {
-            alert("Not enough points!");
-            return;
+      function processCSVInput() {
+        const lines = csvInput.value.trim().split("\n");
+        lines.forEach((line) => {
+          const [name, points] = line.split(",").map((x) => x.trim());
+          if (name && !isNaN(points)) {
+            players[name] = (players[name] || 0) + parseInt(points);
           }
+        });
+        saveData();
+        renderLeaderboard();
+        csvInput.value = "";
+      }
 
-          players[name].points -= pointsUsed;
-          claimHistory.push({ name, item, pointsUsed });
+      function claimItem(name) {
+        const pointsUsed = parseInt(prompt(`Enter points to use for ${name}:`));
+        const item = prompt("Enter item name:");
+        if (!pointsUsed || !item) return;
+        if (players[name] < pointsUsed)
+          return alert("Not enough points to claim.");
+        players[name] -= pointsUsed;
+        claimHistory.push({ name, item, pointsUsed });
+        saveData();
+        renderLeaderboard();
+        renderClaimHistory();
+      }
+
+      function deletePlayer(name) {
+        if (confirm(`Remove ${name} from leaderboard?`)) {
+          delete players[name];
           saveData();
           renderLeaderboard();
+        }
+      }
+
+      function deleteClaim(index) {
+        if (confirm("Delete this claim log?")) {
+          claimHistory.splice(index, 1);
+          saveData();
           renderClaimHistory();
         }
+      }
 
-        // Delete player
-        if (e.target.classList.contains("delete-player")) {
-          const name = e.target.dataset.name;
-          if (confirm(`Delete ${name} from leaderboard?`)) {
-            delete players[name];
-            saveData();
-            renderLeaderboard();
-          }
-        }
-
-        // Delete claim log
-        if (e.target.classList.contains("delete-claim")) {
-          const index = e.target.dataset.index;
-          if (confirm("Delete this claim entry?")) {
-            claimHistory.splice(index, 1);
-            saveData();
-            renderClaimHistory();
-          }
-        }
-      });
+      processLog.addEventListener("click", processPlayerLog);
+      processCSV.addEventListener("click", processCSVInput);
 
       renderLeaderboard();
       renderClaimHistory();
