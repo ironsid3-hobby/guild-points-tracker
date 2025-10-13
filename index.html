@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Guild Points Tracker</title>
+    <link href="tailwind.css" rel="stylesheet" />
+</head>
+
+<body class="bg-gray-900 text-gray-100 min-h-screen flex flex-col items-center p-6">
+    <h1 class="text-3xl font-bold mb-4">⚔️ Guild Points Tracker</h1>
+
+    <!-- Paste Log Section -->
+    <div class="w-full max-w-3xl bg-gray-800 p-4 rounded-2xl shadow mb-6">
+        <h2 class="text-xl font-semibold mb-2">Paste Player Log</h2>
+        <textarea id="logInput" class="w-full h-32 p-2 rounded text-black"
+            placeholder="Paste player names here (one per line)..."></textarea>
+        <div class="flex items-center gap-3 mt-3">
+            <input id="pointsToAdd" type="number" class="w-24 p-2 rounded text-black" placeholder="Points" />
+            <button id="addPointsBtn"
+                class="bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded text-white font-semibold">Add Points</button>
+            <button id="clearDataBtn"
+                class="bg-red-600 hover:bg-red-700 px-4 py-2 rounded text-white font-semibold ml-auto">Clear All
+                Data</button>
+        </div>
+    </div>
+
+    <!-- Leaderboard -->
+    <div class="w-full max-w-3xl bg-gray-800 p-4 rounded-2xl shadow mb-6">
+        <h2 class="text-xl font-semibold mb-2">Leaderboard</h2>
+        <table class="w-full text-left border-collapse" id="leaderboardTable">
+            <thead>
+                <tr class="border-b border-gray-600">
+                    <th class="py-2">Player</th>
+                    <th class="py-2">Points</th>
+                    <th class="py-2 text-center">Action</th>
+                </tr>
+            </thead>
+            <tbody id="leaderboardBody"></tbody>
+        </table>
+    </div>
+
+    <!-- Claim History -->
+    <div class="w-full max-w-3xl bg-gray-800 p-4 rounded-2xl shadow">
+        <h2 class="text-xl font-semibold mb-2">Claim History</h2>
+        <table class="w-full text-left border-collapse" id="claimHistoryTable">
+            <thead>
+                <tr class="border-b border-gray-600">
+                    <th class="py-2">Player</th>
+                    <th class="py-2">Item</th>
+                    <th class="py-2">Points Used</th>
+                    <th class="py-2">Date</th>
+                </tr>
+            </thead>
+            <tbody id="claimHistoryBody"></tbody>
+        </table>
+    </div>
+
+    <!-- Claim Modal -->
+    <div id="claimModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden">
+        <div class="bg-gray-800 p-6 rounded-xl shadow-lg w-80">
+            <h3 id="claimModalTitle" class="text-lg font-semibold mb-3"></h3>
+            <input id="claimPointsInput" type="number" class="w-full mb-2 p-2 rounded text-black"
+                placeholder="Points to spend" />
+            <input id="claimItemInput" type="text" class="w-full mb-4 p-2 rounded text-black" placeholder="Item name" />
+            <div class="flex justify-end gap-2">
+                <button id="cancelClaimBtn" class="bg-gray-600 px-3 py-2 rounded">Cancel</button>
+                <button id="confirmClaimBtn" class="bg-green-600 px-3 py-2 rounded">Confirm</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
