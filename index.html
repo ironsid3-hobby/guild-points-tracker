@@ -35,9 +35,9 @@
     </div>
 
     <!-- Center: Leaderboard -->
-    <div class="col-span-2 bg-gray-800 p-4 rounded-2xl shadow-lg">
+    <div class="col-span-2 bg-gray-800 p-4 rounded-2xl shadow-lg flex flex-col">
       <h2 class="text-2xl font-semibold mb-3 text-yellow-400">🏆 Leaderboard</h2>
-      <table class="w-full text-left border-collapse" id="leaderboardTable">
+      <table class="w-full text-left border-collapse mb-4" id="leaderboardTable">
         <thead>
           <tr class="border-b border-gray-600">
             <th class="py-2">Player</th>
@@ -47,6 +47,9 @@
         </thead>
         <tbody id="leaderboardBody"></tbody>
       </table>
+      <div class="flex justify-end">
+        <button id="downloadDataBtn" class="hidden bg-yellow-600 hover:bg-yellow-700 px-4 py-2 rounded text-white font-semibold text-sm">💾 Download Data</button>
+      </div>
     </div>
   </div>
 
@@ -84,6 +87,7 @@
     const claimHistoryBody = document.getElementById('claimHistoryBody');
     const loginBtn = document.getElementById('loginBtn');
     const logoutBtn = document.getElementById('logoutBtn');
+    const downloadDataBtn = document.getElementById('downloadDataBtn');
 
     // Load data.json
     async function loadData() {
@@ -99,10 +103,25 @@
       }
     }
 
-    // Save data.json (local only, not synced)
-    async function saveData() {
+    // Save to localStorage (still for temporary edits)
+    function saveData() {
       const data = { leaderboard, claimHistory };
       localStorage.setItem('guildData', JSON.stringify(data));
+    }
+
+    // Download data.json
+    function downloadData() {
+      const data = {
+        leaderboard,
+        claimHistory
+      };
+      const blob = new Blob([JSON.stringify(data, null, 2)], { type: "application/json" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = "data.json";
+      a.click();
+      URL.revokeObjectURL(url);
     }
 
     // Render Leaderboard
@@ -160,6 +179,7 @@
         logoutBtn.classList.remove('hidden');
         addPointsBtn.classList.remove('hidden');
         addCsvBtn.classList.remove('hidden');
+        downloadDataBtn.classList.remove('hidden');
         renderLeaderboard();
         renderClaimHistory();
         alert("✅ Admin mode activated!");
@@ -174,6 +194,7 @@
       logoutBtn.classList.add('hidden');
       addPointsBtn.classList.add('hidden');
       addCsvBtn.classList.add('hidden');
+      downloadDataBtn.classList.add('hidden');
       renderLeaderboard();
       renderClaimHistory();
       alert("Logged out of admin mode.");
@@ -249,6 +270,7 @@
       });
     }
 
+    downloadDataBtn.addEventListener('click', downloadData);
     loadData();
   </script>
 </body>
