@@ -16,8 +16,9 @@
   </div>
 
   <div class="w-full max-w-6xl grid grid-cols-3 gap-6">
-    <!-- Left: Player Logs -->
+    <!-- Left: Logs and Claim History -->
     <div class="col-span-1 space-y-4">
+      <!-- Player Log -->
       <div id="manualLog" class="bg-gray-800 p-4 rounded-xl shadow">
         <h2 class="text-lg font-semibold mb-2">🧾 Paste Player Log</h2>
         <textarea id="logInput" class="w-full h-32 p-2 rounded text-black" placeholder="Paste player names here (one per line)..."></textarea>
@@ -27,10 +28,28 @@
         </div>
       </div>
 
+      <!-- CSV Log -->
       <div id="csvLog" class="bg-gray-800 p-4 rounded-xl shadow">
         <h2 class="text-lg font-semibold mb-2">📂 Paste CSV Log</h2>
         <textarea id="csvInput" class="w-full h-32 p-2 rounded text-black" placeholder="name,points per line"></textarea>
-        <button id="addCsvBtn" class="bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded text-white font-semibold hidden">Add CSV</button>
+        <button id="addCsvBtn" class="bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded text-white font-semibold hidden mt-2">Add CSV</button>
+      </div>
+
+      <!-- Claim History (moved here) -->
+      <div class="bg-gray-800 p-4 rounded-xl shadow">
+        <h2 class="text-lg font-semibold mb-3 text-green-400">📜 Claim History</h2>
+        <table class="w-full text-left border-collapse text-sm" id="claimHistoryTable">
+          <thead>
+            <tr class="border-b border-gray-600">
+              <th class="py-2">Player</th>
+              <th class="py-2">Item</th>
+              <th class="py-2">Points</th>
+              <th class="py-2">Date</th>
+              <th class="py-2 text-center">Action</th>
+            </tr>
+          </thead>
+          <tbody id="claimHistoryBody"></tbody>
+        </table>
       </div>
     </div>
 
@@ -53,26 +72,10 @@
     </div>
   </div>
 
-  <!-- Claim History -->
-  <div class="w-full max-w-6xl bg-gray-800 p-4 rounded-2xl shadow mt-6">
-    <h2 class="text-2xl font-semibold mb-3 text-green-400">📜 Claim History</h2>
-    <table class="w-full text-left border-collapse" id="claimHistoryTable">
-      <thead>
-        <tr class="border-b border-gray-600">
-          <th class="py-2">Player</th>
-          <th class="py-2">Item</th>
-          <th class="py-2">Points Used</th>
-          <th class="py-2">Date</th>
-          <th class="py-2 text-center">Action</th>
-        </tr>
-      </thead>
-      <tbody id="claimHistoryBody"></tbody>
-    </table>
-  </div>
-
+  <!-- JavaScript -->
   <script>
     let isAdmin = false;
-    const ADMIN_KEY = "admin123"; // change this to your own secret key!
+    const ADMIN_KEY = "admin123"; // change this
     const DATA_URL = "data.json";
 
     let leaderboard = {};
@@ -89,7 +92,6 @@
     const logoutBtn = document.getElementById('logoutBtn');
     const downloadDataBtn = document.getElementById('downloadDataBtn');
 
-    // Load data.json
     async function loadData() {
       try {
         const res = await fetch(DATA_URL + "?t=" + Date.now());
@@ -103,18 +105,13 @@
       }
     }
 
-    // Save to localStorage (still for temporary edits)
     function saveData() {
       const data = { leaderboard, claimHistory };
       localStorage.setItem('guildData', JSON.stringify(data));
     }
 
-    // Download data.json
     function downloadData() {
-      const data = {
-        leaderboard,
-        claimHistory
-      };
+      const data = { leaderboard, claimHistory };
       const blob = new Blob([JSON.stringify(data, null, 2)], { type: "application/json" });
       const url = URL.createObjectURL(blob);
       const a = document.createElement("a");
@@ -124,7 +121,6 @@
       URL.revokeObjectURL(url);
     }
 
-    // Render Leaderboard
     function renderLeaderboard() {
       leaderboardBody.innerHTML = '';
       Object.entries(leaderboard)
@@ -149,7 +145,6 @@
       if (isAdmin) attachDeleteEvents();
     }
 
-    // Render Claim History
     function renderClaimHistory() {
       claimHistoryBody.innerHTML = '';
       claimHistory.forEach((entry, index) => {
@@ -170,7 +165,6 @@
       if (isAdmin) attachClaimDeleteEvents();
     }
 
-    // Admin Login
     loginBtn.addEventListener('click', () => {
       const key = prompt("Enter admin key:");
       if (key === ADMIN_KEY) {
@@ -200,7 +194,6 @@
       alert("Logged out of admin mode.");
     });
 
-    // Add points manually
     addPointsBtn.addEventListener('click', () => {
       const names = logInput.value.trim().split('\n').map(n => n.trim()).filter(n => n);
       const points = parseInt(pointsToAdd.value);
@@ -212,7 +205,6 @@
       pointsToAdd.value = '';
     });
 
-    // Add from CSV
     addCsvBtn.addEventListener('click', () => {
       const lines = csvInput.value.trim().split('\n');
       lines.forEach(line => {
@@ -225,7 +217,6 @@
       csvInput.value = '';
     });
 
-    // Delete player
     function attachDeleteEvents() {
       document.querySelectorAll('.delete-btn').forEach(btn => {
         btn.addEventListener('click', () => {
@@ -239,7 +230,6 @@
       });
     }
 
-    // Delete claim
     function attachClaimDeleteEvents() {
       document.querySelectorAll('.delete-claim').forEach(btn => {
         btn.addEventListener('click', () => {
@@ -253,7 +243,6 @@
       });
     }
 
-    // Claim event
     function attachClaimEvents() {
       document.querySelectorAll('.claim-btn').forEach(btn => {
         btn.addEventListener('click', () => {
