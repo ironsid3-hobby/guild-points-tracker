@@ -2,127 +2,252 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Guild Points Tracker</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #0d1117;
-      color: #eee;
-      padding: 20px;
-    }
-    h1 { color: #00c3ff; }
-    textarea, input {
-      background: #161b22;
-      color: #eee;
-      border: 1px solid #30363d;
-      border-radius: 6px;
-      padding: 6px;
-    }
-    button {
-      background: #238636;
-      color: white;
-      border: none;
-      border-radius: 6px;
-      padding: 6px 12px;
-      margin: 5px;
-      cursor: pointer;
-    }
-    button:hover { background: #2ea043; }
-    table {
-      border-collapse: collapse;
-      width: 100%;
-      margin-top: 10px;
-    }
-    th, td {
-      border: 1px solid #30363d;
-      padding: 6px;
-    }
-    th { background: #161b22; }
-    .log-area, .csv-area { 
-      width: 300px; 
-      height: 100px;
-      display: inline-block;
-      vertical-align: top;
-    }
-  </style>
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-  <h1>🏆 Guild Points Tracker</h1>
+<body class="bg-gray-900 text-gray-100 min-h-screen flex flex-col items-center p-6">
+  <h1 class="text-4xl font-bold mb-6 text-blue-400">⚔️ Guild Points Tracker</h1>
 
-  <div>
-    <textarea id="pasteLog" placeholder="Paste player logs here..." class="log-area"></textarea>
-    <textarea id="csvLog" placeholder="Paste CSV log here..." class="csv-area"></textarea>
-    <br>
-    <button id="addNames">Add Names / Points</button>
-    <button id="syncBtn">Sync (Copy JSON)</button>
+  <!-- Admin Controls -->
+  <div id="adminControls" class="w-full max-w-5xl flex justify-end mb-4">
+    <button id="loginBtn" class="bg-blue-700 px-4 py-2 rounded-lg hover:bg-blue-800">Admin Login</button>
+    <button id="logoutBtn" class="hidden bg-gray-600 px-4 py-2 rounded-lg hover:bg-gray-700 ml-2">Logout</button>
   </div>
 
-  <h2>Leaderboard</h2>
-  <table id="leaderboardTable">
-    <thead><tr><th>Player</th><th>Points</th></tr></thead>
-    <tbody></tbody>
-  </table>
+  <div class="w-full max-w-6xl grid grid-cols-3 gap-6">
+    <!-- Left: Player Logs -->
+    <div class="col-span-1 space-y-4">
+      <div id="manualLog" class="bg-gray-800 p-4 rounded-xl shadow">
+        <h2 class="text-lg font-semibold mb-2">🧾 Paste Player Log</h2>
+        <textarea id="logInput" class="w-full h-32 p-2 rounded text-black" placeholder="Paste player names here (one per line)..."></textarea>
+        <div class="flex items-center gap-3 mt-3">
+          <input id="pointsToAdd" type="number" class="w-24 p-2 rounded text-black" placeholder="Points" />
+          <button id="addPointsBtn" class="bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded text-white font-semibold hidden">Add Points</button>
+        </div>
+      </div>
 
-  <h2>Claimed Items</h2>
-  <ul id="claimedItemsList"></ul>
+      <div id="csvLog" class="bg-gray-800 p-4 rounded-xl shadow">
+        <h2 class="text-lg font-semibold mb-2">📂 Paste CSV Log</h2>
+        <textarea id="csvInput" class="w-full h-32 p-2 rounded text-black" placeholder="name,points per line"></textarea>
+        <button id="addCsvBtn" class="bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded text-white font-semibold hidden">Add CSV</button>
+      </div>
+    </div>
 
-  <h2>Logs</h2>
-  <ul id="logList"></ul>
+    <!-- Center: Leaderboard -->
+    <div class="col-span-2 bg-gray-800 p-4 rounded-2xl shadow-lg">
+      <h2 class="text-2xl font-semibold mb-3 text-yellow-400">🏆 Leaderboard</h2>
+      <table class="w-full text-left border-collapse" id="leaderboardTable">
+        <thead>
+          <tr class="border-b border-gray-600">
+            <th class="py-2">Player</th>
+            <th class="py-2">Points</th>
+            <th class="py-2 text-center">Actions</th>
+          </tr>
+        </thead>
+        <tbody id="leaderboardBody"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Claim History -->
+  <div class="w-full max-w-6xl bg-gray-800 p-4 rounded-2xl shadow mt-6">
+    <h2 class="text-2xl font-semibold mb-3 text-green-400">📜 Claim History</h2>
+    <table class="w-full text-left border-collapse" id="claimHistoryTable">
+      <thead>
+        <tr class="border-b border-gray-600">
+          <th class="py-2">Player</th>
+          <th class="py-2">Item</th>
+          <th class="py-2">Points Used</th>
+          <th class="py-2">Date</th>
+          <th class="py-2 text-center">Action</th>
+        </tr>
+      </thead>
+      <tbody id="claimHistoryBody"></tbody>
+    </table>
+  </div>
 
   <script>
-    const dataUrl = "https://raw.githubusercontent.com/<your-username>/<your-repo>/main/data.json"; // 🔹 change this
+    let isAdmin = false;
+    const ADMIN_KEY = "admin123"; // change this to your own secret key!
+    const DATA_URL = "data.json";
 
-    let data = { leaderboard: [], claimedItems: [], logs: [] };
+    let leaderboard = {};
+    let claimHistory = [];
 
+    const logInput = document.getElementById('logInput');
+    const pointsToAdd = document.getElementById('pointsToAdd');
+    const addPointsBtn = document.getElementById('addPointsBtn');
+    const csvInput = document.getElementById('csvInput');
+    const addCsvBtn = document.getElementById('addCsvBtn');
+    const leaderboardBody = document.getElementById('leaderboardBody');
+    const claimHistoryBody = document.getElementById('claimHistoryBody');
+    const loginBtn = document.getElementById('loginBtn');
+    const logoutBtn = document.getElementById('logoutBtn');
+
+    // Load data.json
     async function loadData() {
       try {
-        const res = await fetch(dataUrl + '?t=' + Date.now()); // prevent cache
-        data = await res.json();
+        const res = await fetch(DATA_URL + "?t=" + Date.now());
+        const data = await res.json();
+        leaderboard = data.leaderboard || {};
+        claimHistory = data.claimHistory || [];
         renderLeaderboard();
-        renderLogs();
-        renderClaims();
-      } catch (e) {
-        console.error("Could not load data.json:", e);
+        renderClaimHistory();
+      } catch (err) {
+        console.error("Failed to load data.json:", err);
       }
     }
 
+    // Save data.json (local only, not synced)
+    async function saveData() {
+      const data = { leaderboard, claimHistory };
+      localStorage.setItem('guildData', JSON.stringify(data));
+    }
+
+    // Render Leaderboard
     function renderLeaderboard() {
-      const tbody = document.querySelector("#leaderboardTable tbody");
-      tbody.innerHTML = data.leaderboard
-        .sort((a,b) => b.points - a.points)
-        .map(p => `<tr><td>${p.name}</td><td>${p.points}</td></tr>`)
-        .join("");
+      leaderboardBody.innerHTML = '';
+      Object.entries(leaderboard)
+        .sort((a, b) => b[1] - a[1])
+        .forEach(([name, points]) => {
+          const row = document.createElement('tr');
+          row.classList.add('border-b', 'border-gray-700');
+          row.innerHTML = `
+            <td class="py-2">${name}</td>
+            <td class="py-2">${points}</td>
+            <td class="py-2 text-center">
+              ${isAdmin ? `
+                <button class="bg-green-600 px-3 py-1 rounded claim-btn" data-name="${name}">Claim</button>
+                <button class="bg-red-600 px-3 py-1 rounded delete-btn" data-name="${name}">Delete</button>
+              ` : `<span class="text-gray-500">View Only</span>`}
+            </td>
+          `;
+          leaderboardBody.appendChild(row);
+        });
+
+      if (isAdmin) attachClaimEvents();
+      if (isAdmin) attachDeleteEvents();
     }
 
-    function renderClaims() {
-      document.getElementById("claimedItemsList").innerHTML =
-        data.claimedItems.map(i => `<li>${i}</li>`).join("");
+    // Render Claim History
+    function renderClaimHistory() {
+      claimHistoryBody.innerHTML = '';
+      claimHistory.forEach((entry, index) => {
+        const row = document.createElement('tr');
+        row.classList.add('border-b', 'border-gray-700');
+        row.innerHTML = `
+          <td class="py-2">${entry.name}</td>
+          <td class="py-2">${entry.item}</td>
+          <td class="py-2">${entry.points}</td>
+          <td class="py-2">${entry.date}</td>
+          <td class="py-2 text-center">
+            ${isAdmin ? `<button class="bg-red-600 px-3 py-1 rounded delete-claim" data-index="${index}">Delete</button>` : ''}
+          </td>
+        `;
+        claimHistoryBody.appendChild(row);
+      });
+
+      if (isAdmin) attachClaimDeleteEvents();
     }
 
-    function renderLogs() {
-      document.getElementById("logList").innerHTML =
-        data.logs.map(l => `<li>${l}</li>`).join("");
-    }
-
-    // 🟩 Add Names / Points locally
-    document.getElementById("addNames").onclick = () => {
-      const names = document.getElementById("pasteLog").value.split("\n").map(n => n.trim()).filter(Boolean);
-      for (let n of names) {
-        const player = data.leaderboard.find(p => p.name === n);
-        if (player) player.points += 1;
-        else data.leaderboard.push({ name: n, points: 1 });
+    // Admin Login
+    loginBtn.addEventListener('click', () => {
+      const key = prompt("Enter admin key:");
+      if (key === ADMIN_KEY) {
+        isAdmin = true;
+        loginBtn.classList.add('hidden');
+        logoutBtn.classList.remove('hidden');
+        addPointsBtn.classList.remove('hidden');
+        addCsvBtn.classList.remove('hidden');
+        renderLeaderboard();
+        renderClaimHistory();
+        alert("✅ Admin mode activated!");
+      } else {
+        alert("❌ Wrong key!");
       }
-      document.getElementById("pasteLog").value = "";
-      renderLeaderboard();
-    };
+    });
 
-    // 🟦 Sync button — show updated JSON for manual copy
-    document.getElementById("syncBtn").onclick = () => {
-      const json = JSON.stringify(data, null, 2);
-      navigator.clipboard.writeText(json);
-      alert("✅ Copied updated data.json content! Paste it into GitHub > data.json");
-    };
+    logoutBtn.addEventListener('click', () => {
+      isAdmin = false;
+      loginBtn.classList.remove('hidden');
+      logoutBtn.classList.add('hidden');
+      addPointsBtn.classList.add('hidden');
+      addCsvBtn.classList.add('hidden');
+      renderLeaderboard();
+      renderClaimHistory();
+      alert("Logged out of admin mode.");
+    });
+
+    // Add points manually
+    addPointsBtn.addEventListener('click', () => {
+      const names = logInput.value.trim().split('\n').map(n => n.trim()).filter(n => n);
+      const points = parseInt(pointsToAdd.value);
+      if (names.length === 0 || isNaN(points)) return alert('Enter names and points!');
+      names.forEach(name => leaderboard[name] = (leaderboard[name] || 0) + points);
+      saveData();
+      renderLeaderboard();
+      logInput.value = '';
+      pointsToAdd.value = '';
+    });
+
+    // Add from CSV
+    addCsvBtn.addEventListener('click', () => {
+      const lines = csvInput.value.trim().split('\n');
+      lines.forEach(line => {
+        const [name, pts] = line.split(',').map(x => x.trim());
+        const points = parseInt(pts);
+        if (name && !isNaN(points)) leaderboard[name] = (leaderboard[name] || 0) + points;
+      });
+      saveData();
+      renderLeaderboard();
+      csvInput.value = '';
+    });
+
+    // Delete player
+    function attachDeleteEvents() {
+      document.querySelectorAll('.delete-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const name = btn.dataset.name;
+          if (confirm(`Delete ${name}?`)) {
+            delete leaderboard[name];
+            saveData();
+            renderLeaderboard();
+          }
+        });
+      });
+    }
+
+    // Delete claim
+    function attachClaimDeleteEvents() {
+      document.querySelectorAll('.delete-claim').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const index = parseInt(btn.dataset.index);
+          if (confirm("Remove this claim?")) {
+            claimHistory.splice(index, 1);
+            saveData();
+            renderClaimHistory();
+          }
+        });
+      });
+    }
+
+    // Claim event
+    function attachClaimEvents() {
+      document.querySelectorAll('.claim-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const name = btn.dataset.name;
+          const item = prompt(`Enter item claimed by ${name}:`);
+          const cost = parseInt(prompt("Enter points used:"));
+          if (!item || isNaN(cost)) return;
+          leaderboard[name] = Math.max((leaderboard[name] || 0) - cost, 0);
+          claimHistory.push({ name, item, points: cost, date: new Date().toLocaleString() });
+          saveData();
+          renderLeaderboard();
+          renderClaimHistory();
+        });
+      });
+    }
 
     loadData();
   </script>
