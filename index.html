@@ -7,46 +7,42 @@
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-gray-900 text-gray-100 min-h-screen flex flex-col items-center p-6">
-  <h1 class="text-4xl font-bold mb-6 text-blue-400">⚔️ Guild Points Tracker</h1>
+  <h1 class="text-3xl font-bold mb-4">⚔️ Guild Points Tracker</h1>
 
-  <!-- Admin Controls -->
-  <div id="adminControls" class="w-full max-w-6xl flex justify-end mb-4">
-    <button id="loginBtn" class="bg-blue-700 px-4 py-2 rounded-lg hover:bg-blue-800">Admin Login</button>
-    <button id="logoutBtn" class="hidden bg-gray-600 px-4 py-2 rounded-lg hover:bg-gray-700 ml-2">Logout</button>
-  </div>
-
-  <div class="w-full max-w-6xl grid grid-cols-3 gap-6">
-    <!-- Left Column -->
-    <div class="col-span-1 space-y-4">
-      
+  <!-- Main Layout -->
+  <div class="flex flex-col md:flex-row gap-6 w-full max-w-6xl">
+    <!-- Left Side: Paste Logs -->
+    <div class="w-full md:w-1/3 flex flex-col gap-6">
       <!-- Paste Player Log -->
-      <div id="manualLog" class="bg-gray-800 p-4 rounded-xl shadow">
-        <h2 class="text-lg font-semibold mb-2">🧾 Paste Player Log</h2>
+      <div class="bg-gray-800 p-4 rounded-2xl shadow">
+        <h2 class="text-xl font-semibold mb-2">Paste Player Log</h2>
         <textarea id="logInput" class="w-full h-32 p-2 rounded text-black" placeholder="Paste player names here (one per line)..."></textarea>
         <div class="flex items-center gap-3 mt-3">
           <input id="pointsToAdd" type="number" class="w-24 p-2 rounded text-black" placeholder="Points" />
-          <button id="addPointsBtn" class="bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded text-white font-semibold hidden">Add Points</button>
+          <button id="addPointsBtn" class="bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded text-white font-semibold">Add Points</button>
         </div>
+        <div id="typoWarnings" class="text-yellow-400 text-sm mt-2"></div>
       </div>
 
-      <!-- Paste CSV Log -->
-      <div id="csvLog" class="bg-gray-800 p-4 rounded-xl shadow">
-        <h2 class="text-lg font-semibold mb-2">📂 Paste CSV Log</h2>
-        <textarea id="csvInput" class="w-full h-32 p-2 rounded text-black" placeholder="name,points per line"></textarea>
-        <button id="addCsvBtn" class="bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded text-white font-semibold hidden">Add CSV</button>
+      <!-- CSV Paste Log -->
+      <div class="bg-gray-800 p-4 rounded-2xl shadow">
+        <h2 class="text-xl font-semibold mb-2">Paste CSV (name,points)</h2>
+        <textarea id="csvInput" class="w-full h-32 p-2 rounded text-black" placeholder="Example:
+FlynnHarith,10
+NaTaLee,5"></textarea>
+        <button id="importCsvBtn" class="bg-purple-600 hover:bg-purple-700 px-4 py-2 rounded text-white font-semibold mt-3">Import CSV</button>
       </div>
 
-      <!-- Claim History Below CSV -->
-      <div class="bg-gray-800 p-4 rounded-xl shadow">
-        <h2 class="text-lg font-semibold mb-2 text-green-400">📜 Claim History</h2>
-        <table class="w-full text-left border-collapse" id="claimHistoryTable">
+      <!-- Claim History -->
+      <div class="bg-gray-800 p-4 rounded-2xl shadow">
+        <h2 class="text-xl font-semibold mb-2">Claim History</h2>
+        <table class="w-full text-left border-collapse text-sm" id="claimHistoryTable">
           <thead>
             <tr class="border-b border-gray-600">
               <th class="py-2">Player</th>
               <th class="py-2">Item</th>
               <th class="py-2">Points</th>
               <th class="py-2">Date</th>
-              <th class="py-2 text-center">Action</th>
             </tr>
           </thead>
           <tbody id="claimHistoryBody"></tbody>
@@ -54,15 +50,15 @@
       </div>
     </div>
 
-    <!-- Leaderboard -->
-    <div class="col-span-2 bg-gray-800 p-4 rounded-2xl shadow-lg">
-      <h2 class="text-2xl font-semibold mb-3 text-yellow-400">🏆 Leaderboard</h2>
+    <!-- Right Side: Leaderboard -->
+    <div class="w-full md:w-2/3 bg-gray-800 p-4 rounded-2xl shadow">
+      <h2 class="text-2xl font-semibold mb-3">Leaderboard</h2>
       <table class="w-full text-left border-collapse" id="leaderboardTable">
         <thead>
           <tr class="border-b border-gray-600">
             <th class="py-2">Player</th>
             <th class="py-2">Points</th>
-            <th class="py-2 text-center">Actions</th>
+            <th class="py-2 text-center">Action</th>
           </tr>
         </thead>
         <tbody id="leaderboardBody"></tbody>
@@ -70,158 +66,149 @@
     </div>
   </div>
 
+  <!-- Claim Modal -->
+  <div id="claimModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden">
+    <div class="bg-gray-800 p-6 rounded-xl shadow-lg w-80">
+      <h3 id="claimModalTitle" class="text-lg font-semibold mb-3"></h3>
+      <input id="claimPointsInput" type="number" class="w-full mb-2 p-2 rounded text-black" placeholder="Points to spend" />
+      <input id="claimItemInput" type="text" class="w-full mb-4 p-2 rounded text-black" placeholder="Item name" />
+      <div class="flex justify-end gap-2">
+        <button id="cancelClaimBtn" class="bg-gray-600 px-3 py-2 rounded">Cancel</button>
+        <button id="confirmClaimBtn" class="bg-green-600 px-3 py-2 rounded">Confirm</button>
+      </div>
+    </div>
+  </div>
+
   <script>
-    let isAdmin = false;
-    const ADMIN_KEY = "admin123"; // change this to your own secret key!
-
-    const leaderboard = JSON.parse(localStorage.getItem('leaderboard')) || {};
-    const claimHistory = JSON.parse(localStorage.getItem('claimHistory')) || [];
-
-    const logInput = document.getElementById('logInput');
-    const pointsToAdd = document.getElementById('pointsToAdd');
-    const addPointsBtn = document.getElementById('addPointsBtn');
-    const csvInput = document.getElementById('csvInput');
-    const addCsvBtn = document.getElementById('addCsvBtn');
     const leaderboardBody = document.getElementById('leaderboardBody');
     const claimHistoryBody = document.getElementById('claimHistoryBody');
-    const loginBtn = document.getElementById('loginBtn');
-    const logoutBtn = document.getElementById('logoutBtn');
+    const addPointsBtn = document.getElementById('addPointsBtn');
+    const importCsvBtn = document.getElementById('importCsvBtn');
+    const logInput = document.getElementById('logInput');
+    const csvInput = document.getElementById('csvInput');
+    const pointsToAdd = document.getElementById('pointsToAdd');
+    const typoWarnings = document.getElementById('typoWarnings');
 
-    // Save Data
-    function saveData() {
-      localStorage.setItem('leaderboard', JSON.stringify(leaderboard));
-      localStorage.setItem('claimHistory', JSON.stringify(claimHistory));
+    const claimModal = document.getElementById('claimModal');
+    const claimModalTitle = document.getElementById('claimModalTitle');
+    const claimPointsInput = document.getElementById('claimPointsInput');
+    const claimItemInput = document.getElementById('claimItemInput');
+    const cancelClaimBtn = document.getElementById('cancelClaimBtn');
+    const confirmClaimBtn = document.getElementById('confirmClaimBtn');
+
+    let selectedPlayer = null;
+    let currentLeaderboard = [];
+
+    async function fetchLeaderboard() {
+      const res = await fetch('/.netlify/functions/leaderboard');
+      const data = await res.json();
+      currentLeaderboard = data;
+      renderLeaderboard();
     }
 
-    // Render Leaderboard
+    async function fetchClaims() {
+      const res = await fetch('/.netlify/functions/getClaims');
+      const data = await res.json();
+      renderClaimHistory(data);
+    }
+
     function renderLeaderboard() {
       leaderboardBody.innerHTML = '';
-      Object.entries(leaderboard)
-        .sort((a, b) => b[1] - a[1])
-        .forEach(([name, points]) => {
-          const row = document.createElement('tr');
-          row.classList.add('border-b', 'border-gray-700');
-          row.innerHTML = `
-            <td class="py-2">${name}</td>
-            <td class="py-2">${points}</td>
-            <td class="py-2 text-center">
-              ${isAdmin ? `
-                <button class="bg-green-600 px-3 py-1 rounded claim-btn" data-name="${name}">Claim</button>
-                <button class="bg-red-600 px-3 py-1 rounded delete-btn" data-name="${name}">Delete</button>
-              ` : `<span class="text-gray-500">View Only</span>`}
-            </td>
-          `;
-          leaderboardBody.appendChild(row);
-        });
-
-      if (isAdmin) attachClaimEvents();
-      if (isAdmin) attachDeleteEvents();
+      currentLeaderboard.forEach(player => {
+        const row = document.createElement('tr');
+        row.classList.add('border-b', 'border-gray-700');
+        row.innerHTML = `
+          <td class="py-2">${player.name}</td>
+          <td class="py-2">${player.points}</td>
+          <td class="py-2 text-center">
+            <button class="bg-green-600 px-3 py-1 rounded claim-btn" data-name="${player.name}">Claim</button>
+          </td>
+        `;
+        leaderboardBody.appendChild(row);
+      });
+      attachClaimEvents();
     }
 
-    // Render Claim History
-    function renderClaimHistory() {
+    function renderClaimHistory(history) {
       claimHistoryBody.innerHTML = '';
-      claimHistory.forEach((entry, index) => {
+      history.forEach(entry => {
         const row = document.createElement('tr');
         row.classList.add('border-b', 'border-gray-700');
         row.innerHTML = `
           <td class="py-2">${entry.name}</td>
           <td class="py-2">${entry.item}</td>
           <td class="py-2">${entry.points}</td>
-          <td class="py-2">${entry.date}</td>
-          <td class="py-2 text-center">
-            ${isAdmin ? `<button class="bg-red-600 px-3 py-1 rounded delete-claim" data-index="${index}">Delete</button>` : ''}
-          </td>
+          <td class="py-2">${new Date(entry.date).toLocaleString()}</td>
         `;
         claimHistoryBody.appendChild(row);
       });
-
-      if (isAdmin) attachClaimDeleteEvents();
     }
 
-    // Admin Login
-    loginBtn.addEventListener('click', () => {
-      const key = prompt("Enter admin key:");
-      if (key === ADMIN_KEY) {
-        isAdmin = true;
-        loginBtn.classList.add('hidden');
-        logoutBtn.classList.remove('hidden');
-        addPointsBtn.classList.remove('hidden');
-        addCsvBtn.classList.remove('hidden');
-        renderLeaderboard();
-        renderClaimHistory();
-        alert("✅ Admin mode activated!");
-      } else {
-        alert("❌ Wrong key!");
-      }
-    });
-
-    logoutBtn.addEventListener('click', () => {
-      isAdmin = false;
-      loginBtn.classList.remove('hidden');
-      logoutBtn.classList.add('hidden');
-      addPointsBtn.classList.add('hidden');
-      addCsvBtn.classList.add('hidden');
-      renderLeaderboard();
-      renderClaimHistory();
-      alert("Logged out of admin mode.");
-    });
-
-    // Add points manually
-    addPointsBtn.addEventListener('click', () => {
+    addPointsBtn.addEventListener('click', async () => {
       const names = logInput.value.trim().split('\n').map(n => n.trim()).filter(n => n);
       const points = parseInt(pointsToAdd.value);
-      if (names.length === 0 || isNaN(points)) return alert('Enter names and points!');
-      names.forEach(name => leaderboard[name] = (leaderboard[name] || 0) + points);
-      saveData();
-      renderLeaderboard();
+      if (!names.length || isNaN(points)) return alert('Enter names and points!');
+
+      for (const name of names) {
+        await fetch('/.netlify/functions/addPoints', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ name, points })
+        });
+      }
+
       logInput.value = '';
       pointsToAdd.value = '';
+      fetchLeaderboard();
     });
 
-    // Add from CSV
-    addCsvBtn.addEventListener('click', () => {
+    importCsvBtn.addEventListener('click', async () => {
       const lines = csvInput.value.trim().split('\n');
-      lines.forEach(line => {
-        const [name, pts] = line.split(',').map(x => x.trim());
+      for (const line of lines) {
+        const [name, pts] = line.split(',').map(v => v.trim());
         const points = parseInt(pts);
-        if (name && !isNaN(points)) leaderboard[name] = (leaderboard[name] || 0) + points;
-      });
-      saveData();
-      renderLeaderboard();
+        if (!name || isNaN(points)) continue;
+        await fetch('/.netlify/functions/addPoints', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ name, points })
+        });
+      }
       csvInput.value = '';
+      fetchLeaderboard();
     });
 
-    // Delete player
-    function attachDeleteEvents() {
-      document.querySelectorAll('.delete-btn').forEach(btn => {
+    function attachClaimEvents() {
+      document.querySelectorAll('.claim-btn').forEach(btn => {
         btn.addEventListener('click', () => {
-          const name = btn.dataset.name;
-          if (confirm(`Delete ${name}?`)) {
-            delete leaderboard[name];
-            saveData();
-            renderLeaderboard();
-          }
+          selectedPlayer = btn.dataset.name;
+          claimModalTitle.textContent = `Claim for ${selectedPlayer}`;
+          claimPointsInput.value = '';
+          claimItemInput.value = '';
+          claimModal.classList.remove('hidden');
         });
       });
     }
 
-    // Delete claim
-    function attachClaimDeleteEvents() {
-      document.querySelectorAll('.delete-claim').forEach(btn => {
-        btn.addEventListener('click', () => {
-          const index = parseInt(btn.dataset.index);
-          if (confirm("Remove this claim?")) {
-            claimHistory.splice(index, 1);
-            saveData();
-            renderClaimHistory();
-          }
-        });
-      });
-    }
+    cancelClaimBtn.addEventListener('click', () => claimModal.classList.add('hidden'));
+    confirmClaimBtn.addEventListener('click', async () => {
+      const usedPoints = parseInt(claimPointsInput.value);
+      const item = claimItemInput.value.trim();
+      if (isNaN(usedPoints) || !item) return alert('Enter valid points and item');
 
-    renderLeaderboard();
-    renderClaimHistory();
+      await fetch('/.netlify/functions/addClaim', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name: selectedPlayer, points: usedPoints, item })
+      });
+
+      claimModal.classList.add('hidden');
+      fetchLeaderboard();
+      fetchClaims();
+    });
+
+    fetchLeaderboard();
+    fetchClaims();
   </script>
 </body>
 </html>
