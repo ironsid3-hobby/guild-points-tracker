@@ -17,7 +17,7 @@
     "Rixx": 146,
     "SYLPHY": 40,
     "NeiRPlayeR": 126,
-    "B3nK3n": 128,
+    "B3nK3n": 130,
     "zSlow": 142,
     "Miso": 126,
     "DemiGOD": 112,
@@ -29,7 +29,7 @@
     "Skanda": 92,
     "Malignant": 96,
     "Teso": 92,
-    "Toburita": 102,
+    "Toburita": 2,
     "Mamugsitay": 72,
     "MaoMao": 88,
     "Shook": 96,
@@ -49,7 +49,7 @@
     "Vykas": 34,
     "lazer": 16,
     "ReginaSpektor": 24,
-    "xHELENA": 70,
+    "xHELENA": 78,
     "SELENA": 22,
     "Minions": 46,
     "KIMCHII": 50,
@@ -71,8 +71,6 @@
     "Reiyln": 4,
     "TorpedO": 54,
     "Torpedo": 8,
-    "ItadaKimasu": 8,
-    "B3nk3n": 2,
     "MsEna": 6,
     "PkAsborn": 4
   },
@@ -88,6 +86,12 @@
       "item": "Forb. Ratuni",
       "points": 100,
       "date": "10/14/2025, 10:32:55 AM"
+    },
+    {
+      "name": "Toburita",
+      "item": "Forb. Ratuni",
+      "points": 100,
+      "date": "10/19/2025, 10:50:52 AM"
     }
   ]
 }
