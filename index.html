@@ -7,249 +7,92 @@
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-gray-900 text-gray-100 min-h-screen flex flex-col items-center p-6">
-  <h1 class="text-4xl font-bold mb-6 text-blue-400">⚔️ Guild Points Tracker</h1>
+  <h1 class="text-3xl font-bold mb-6 text-yellow-400">Guild Points Tracker</h1>
 
-  <!-- Admin Controls -->
-  <div id="adminControls" class="w-full max-w-5xl flex justify-end mb-4">
-    <button id="loginBtn" class="bg-blue-700 px-4 py-2 rounded-lg hover:bg-blue-800">Admin Login</button>
-    <button id="logoutBtn" class="hidden bg-gray-600 px-4 py-2 rounded-lg hover:bg-gray-700 ml-2">Logout</button>
-  </div>
-
-  <div class="w-full max-w-6xl grid grid-cols-3 gap-6">
-    <!-- Left: Logs and Claim History -->
-    <div class="col-span-1 space-y-4">
-      <!-- Player Log -->
-      <div id="manualLog" class="bg-gray-800 p-4 rounded-xl shadow">
-        <h2 class="text-lg font-semibold mb-2">🧾 Paste Player Log</h2>
-        <textarea id="logInput" class="w-full h-32 p-2 rounded text-black" placeholder="Paste player names here (one per line)..."></textarea>
-        <div class="flex items-center gap-3 mt-3">
-          <input id="pointsToAdd" type="number" class="w-24 p-2 rounded text-black" placeholder="Points" />
-          <button id="addPointsBtn" class="bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded text-white font-semibold hidden">Add Points</button>
-        </div>
-      </div>
-
-      <!-- CSV Log -->
-      <div id="csvLog" class="bg-gray-800 p-4 rounded-xl shadow">
-        <h2 class="text-lg font-semibold mb-2">📂 Paste CSV Log</h2>
-        <textarea id="csvInput" class="w-full h-32 p-2 rounded text-black" placeholder="name,points per line"></textarea>
-        <button id="addCsvBtn" class="bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded text-white font-semibold hidden mt-2">Add CSV</button>
-      </div>
-
-      <!-- Claim History -->
-      <div class="bg-gray-800 p-4 rounded-xl shadow">
-        <h2 class="text-lg font-semibold mb-3 text-green-400">📜 Claim History</h2>
-        <table class="w-full text-left border-collapse text-sm" id="claimHistoryTable">
-          <thead>
-            <tr class="border-b border-gray-600">
-              <th class="py-2">Player</th>
-              <th class="py-2">Item</th>
-              <th class="py-2">Points</th>
-              <th class="py-2">Date</th>
-              <th class="py-2 text-center">Action</th>
-            </tr>
-          </thead>
-          <tbody id="claimHistoryBody"></tbody>
-        </table>
+  <div class="w-full max-w-4xl space-y-6">
+    <div class="bg-gray-800 p-4 rounded-2xl shadow-lg">
+      <h2 class="text-xl mb-2 font-semibold">Add Points</h2>
+      <div class="flex flex-wrap gap-2 mb-2">
+        <input id="nameInput" placeholder="Enter name(s) e.g. FLynnHariTh, PkAshborn"
+               class="flex-grow p-2 rounded bg-gray-700 text-gray-100 placeholder-gray-400">
+        <input id="pointsInput" type="number" placeholder="Points"
+               class="w-24 p-2 rounded bg-gray-700 text-gray-100 placeholder-gray-400">
+        <button id="addPointsBtn"
+                class="bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded text-white font-semibold">
+          Add
+        </button>
       </div>
     </div>
 
-    <!-- Center: Leaderboard -->
-    <div class="col-span-2 bg-gray-800 p-4 rounded-2xl shadow-lg flex flex-col">
-      <h2 class="text-2xl font-semibold mb-3 text-yellow-400">🏆 Leaderboard</h2>
-      <table class="w-full text-left border-collapse mb-4" id="leaderboardTable">
-        <thead>
-          <tr class="border-b border-gray-600">
-            <th class="py-2">Player</th>
-            <th class="py-2">Points</th>
-            <th class="py-2 text-center">Actions</th>
-          </tr>
-        </thead>
-        <tbody id="leaderboardBody"></tbody>
-      </table>
-      <div class="flex justify-end">
-        <button id="downloadDataBtn" class="hidden bg-yellow-600 hover:bg-yellow-700 px-4 py-2 rounded text-white font-semibold text-sm">💾 Download Data</button>
-      </div>
+    <div class="bg-gray-800 p-4 rounded-2xl shadow-lg">
+      <h2 class="text-xl mb-2 font-semibold">Leaderboard</h2>
+      <div id="leaderboardList" class="space-y-2"></div>
+      <button id="downloadBtn"
+              class="mt-4 bg-green-600 hover:bg-green-700 px-4 py-2 rounded text-white font-semibold">
+        Download data.json
+      </button>
+    </div>
+
+    <div class="bg-gray-800 p-4 rounded-2xl shadow-lg">
+      <h2 class="text-xl mb-2 font-semibold">Upload CSV</h2>
+      <input type="file" id="csvUpload" accept=".csv" class="block mb-3">
+      <button id="addCsvBtn"
+              class="bg-purple-600 hover:bg-purple-700 px-4 py-2 rounded text-white font-semibold">
+        Add CSV
+      </button>
     </div>
   </div>
 
-  <!-- JavaScript -->
   <script>
-    let isAdmin = false;
-    const ADMIN_KEY = "admin123"; // change this
-    const DATA_URL = "data.json";
-
     let leaderboard = {};
-    let claimHistory = [];
+    let hiddenNames = new Set(); // track typo/merged names so they won’t be displayed
 
-    const logInput = document.getElementById('logInput');
-    const pointsToAdd = document.getElementById('pointsToAdd');
-    const addPointsBtn = document.getElementById('addPointsBtn');
-    const csvInput = document.getElementById('csvInput');
-    const addCsvBtn = document.getElementById('addCsvBtn');
-    const leaderboardBody = document.getElementById('leaderboardBody');
-    const claimHistoryBody = document.getElementById('claimHistoryBody');
-    const loginBtn = document.getElementById('loginBtn');
-    const logoutBtn = document.getElementById('logoutBtn');
-    const downloadDataBtn = document.getElementById('downloadDataBtn');
-
-    async function loadData() {
-      try {
-        const res = await fetch(DATA_URL + "?t=" + Date.now());
-        const data = await res.json();
-        leaderboard = data.leaderboard || {};
-        claimHistory = data.claimHistory || [];
-        renderLeaderboard();
-        renderClaimHistory();
-      } catch (err) {
-        console.error("Failed to load data.json:", err);
-      }
+    function findSimilarName(name) {
+      const lowerName = name.toLowerCase();
+      return Object.keys(leaderboard).find(
+        existing => existing.toLowerCase() === lowerName
+      );
     }
 
-    function saveData() {
-      const data = { leaderboard, claimHistory };
-      localStorage.setItem('guildData', JSON.stringify(data));
+    function updateLeaderboardDisplay() {
+      const list = document.getElementById('leaderboardList');
+      list.innerHTML = '';
+
+      const sorted = Object.entries(leaderboard)
+        .filter(([name]) => !hiddenNames.has(name)) // skip hidden names
+        .sort((a, b) => b[1] - a[1]);
+
+      sorted.forEach(([name, points], index) => {
+        const div = document.createElement('div');
+        div.className = 'flex justify-between bg-gray-700 p-2 rounded';
+        div.innerHTML = `<span class="font-semibold text-yellow-300">${index + 1}. ${name}</span>
+                         <span class="text-white">${points}</span>`;
+        list.appendChild(div);
+      });
     }
 
     function downloadData() {
-      const data = { leaderboard, claimHistory };
+      const data = { leaderboard, hiddenNames: Array.from(hiddenNames) };
       const blob = new Blob([JSON.stringify(data, null, 2)], { type: "application/json" });
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement("a");
-      a.href = url;
-      a.download = "data.json";
-      a.click();
-      URL.revokeObjectURL(url);
+      const link = document.createElement('a');
+      link.href = URL.createObjectURL(blob);
+      link.download = "data.json";
+      link.click();
     }
 
-    // ✅ Compute similarity between two strings
-    function stringSimilarity(a, b) {
-      a = a.toLowerCase();
-      b = b.toLowerCase();
-      const matrix = [];
-      for (let i = 0; i <= b.length; i++) matrix[i] = [i];
-      for (let j = 0; j <= a.length; j++) matrix[0][j] = j;
+    document.getElementById('addPointsBtn').addEventListener('click', () => {
+      const names = document.getElementById('nameInput').value.split(',').map(n => n.trim()).filter(Boolean);
+      const points = parseInt(document.getElementById('pointsInput').value);
 
-      for (let i = 1; i <= b.length; i++) {
-        for (let j = 1; j <= a.length; j++) {
-          if (b.charAt(i - 1) === a.charAt(j - 1)) {
-            matrix[i][j] = matrix[i - 1][j - 1];
-          } else {
-            matrix[i][j] = Math.min(
-              matrix[i - 1][j - 1] + 1,
-              matrix[i][j - 1] + 1,
-              matrix[i - 1][j] + 1
-            );
-          }
-        }
-      }
-
-      const distance = matrix[b.length][a.length];
-      const maxLen = Math.max(a.length, b.length);
-      return 1 - distance / maxLen;
-    }
-
-    // ✅ Find existing name that’s very similar
-    function findSimilarName(name) {
-      const entries = Object.keys(leaderboard);
-      const lowerName = name.toLowerCase();
-      let bestMatch = null;
-      let highestScore = 0;
-
-      for (const existing of entries) {
-        const score = stringSimilarity(existing, lowerName);
-        if (score > highestScore) {
-          highestScore = score;
-          bestMatch = existing;
-        }
-      }
-
-      // threshold: 0.8 = 80% similar
-      return highestScore >= 0.8 ? bestMatch : null;
-    }
-
-    function renderLeaderboard() {
-      leaderboardBody.innerHTML = '';
-      Object.entries(leaderboard)
-        .sort((a, b) => b[1] - a[1])
-        .forEach(([name, points]) => {
-          const row = document.createElement('tr');
-          row.classList.add('border-b', 'border-gray-700');
-          row.innerHTML = `
-            <td class="py-2">${name}</td>
-            <td class="py-2">${points}</td>
-            <td class="py-2 text-center">
-              ${isAdmin ? `
-                <button class="bg-green-600 px-3 py-1 rounded claim-btn" data-name="${name}">Claim</button>
-                <button class="bg-red-600 px-3 py-1 rounded delete-btn" data-name="${name}">Delete</button>
-              ` : `<span class="text-gray-500">View Only</span>`}
-            </td>
-          `;
-          leaderboardBody.appendChild(row);
-        });
-
-      if (isAdmin) attachClaimEvents();
-      if (isAdmin) attachDeleteEvents();
-    }
-
-    function renderClaimHistory() {
-      claimHistoryBody.innerHTML = '';
-      claimHistory.forEach((entry, index) => {
-        const row = document.createElement('tr');
-        row.classList.add('border-b', 'border-gray-700');
-        row.innerHTML = `
-          <td class="py-2">${entry.name}</td>
-          <td class="py-2">${entry.item}</td>
-          <td class="py-2">${entry.points}</td>
-          <td class="py-2">${entry.date}</td>
-          <td class="py-2 text-center">
-            ${isAdmin ? `<button class="bg-red-600 px-3 py-1 rounded delete-claim" data-index="${index}">Delete</button>` : ''}
-          </td>
-        `;
-        claimHistoryBody.appendChild(row);
-      });
-
-      if (isAdmin) attachClaimDeleteEvents();
-    }
-
-    loginBtn.addEventListener('click', () => {
-      const key = prompt("Enter admin key:");
-      if (key === ADMIN_KEY) {
-        isAdmin = true;
-        loginBtn.classList.add('hidden');
-        logoutBtn.classList.remove('hidden');
-        addPointsBtn.classList.remove('hidden');
-        addCsvBtn.classList.remove('hidden');
-        downloadDataBtn.classList.remove('hidden');
-        renderLeaderboard();
-        renderClaimHistory();
-        alert("✅ Admin mode activated!");
-      } else {
-        alert("❌ Wrong key!");
-      }
-    });
-
-    logoutBtn.addEventListener('click', () => {
-      isAdmin = false;
-      loginBtn.classList.remove('hidden');
-      logoutBtn.classList.add('hidden');
-      addPointsBtn.classList.add('hidden');
-      addCsvBtn.classList.add('hidden');
-      downloadDataBtn.classList.add('hidden');
-      renderLeaderboard();
-      renderClaimHistory();
-      alert("Logged out of admin mode.");
-    });
-
-    addPointsBtn.addEventListener('click', () => {
-      const names = logInput.value.trim().split('\n').map(n => n.trim()).filter(n => n);
-      const points = parseInt(pointsToAdd.value);
-      if (names.length === 0 || isNaN(points)) return alert('Enter names and points!');
+      if (!names.length || isNaN(points)) return alert('Please enter valid name(s) and points.');
 
       names.forEach(name => {
         const similar = findSimilarName(name);
         if (similar && similar !== name) {
-          if (confirm(`"${name}" looks very similar to existing "${similar}". Merge points into "${similar}"?`)) {
+          if (confirm(`"${name}" looks similar to existing "${similar}". Merge points into "${similar}"?`)) {
             leaderboard[similar] = (leaderboard[similar] || 0) + points;
+            hiddenNames.add(name); // hide the typo name
+            leaderboard[name] = (leaderboard[name] || 0) + points; // keep internally
           } else {
             leaderboard[name] = (leaderboard[name] || 0) + points;
           }
@@ -258,80 +101,40 @@
         }
       });
 
-      saveData();
-      renderLeaderboard();
-      logInput.value = '';
-      pointsToAdd.value = '';
+      updateLeaderboardDisplay();
+      document.getElementById('nameInput').value = '';
+      document.getElementById('pointsInput').value = '';
     });
 
-    addCsvBtn.addEventListener('click', () => {
-      const lines = csvInput.value.trim().split('\n');
-      lines.forEach(line => {
-        const [name, pts] = line.split(',').map(x => x.trim());
-        const points = parseInt(pts);
-        if (name && !isNaN(points)) {
-          const similar = findSimilarName(name);
-          if (similar && similar !== name) {
-            if (confirm(`"${name}" looks very similar to existing "${similar}". Merge points into "${similar}"?`)) {
-              leaderboard[similar] = (leaderboard[similar] || 0) + points;
-            } else {
-              leaderboard[name] = (leaderboard[name] || 0) + points;
-            }
+    document.getElementById('addCsvBtn').addEventListener('click', async () => {
+      const file = document.getElementById('csvUpload').files[0];
+      if (!file) return alert('Please upload a CSV file.');
+      const text = await file.text();
+      const rows = text.trim().split('\n').map(r => r.split(','));
+
+      rows.forEach(([name, points]) => {
+        name = name.trim();
+        points = parseInt(points);
+        if (!name || isNaN(points)) return;
+
+        const similar = findSimilarName(name);
+        if (similar && similar !== name) {
+          if (confirm(`"${name}" looks similar to existing "${similar}". Merge points into "${similar}"?`)) {
+            leaderboard[similar] = (leaderboard[similar] || 0) + points;
+            hiddenNames.add(name);
+            leaderboard[name] = (leaderboard[name] || 0) + points;
           } else {
             leaderboard[name] = (leaderboard[name] || 0) + points;
           }
+        } else {
+          leaderboard[name] = (leaderboard[name] || 0) + points;
         }
       });
 
-      saveData();
-      renderLeaderboard();
-      csvInput.value = '';
+      updateLeaderboardDisplay();
     });
 
-    function attachDeleteEvents() {
-      document.querySelectorAll('.delete-btn').forEach(btn => {
-        btn.addEventListener('click', () => {
-          const name = btn.dataset.name;
-          if (confirm(`Delete ${name}?`)) {
-            delete leaderboard[name];
-            saveData();
-            renderLeaderboard();
-          }
-        });
-      });
-    }
-
-    function attachClaimDeleteEvents() {
-      document.querySelectorAll('.delete-claim').forEach(btn => {
-        btn.addEventListener('click', () => {
-          const index = parseInt(btn.dataset.index);
-          if (confirm("Remove this claim?")) {
-            claimHistory.splice(index, 1);
-            saveData();
-            renderClaimHistory();
-          }
-        });
-      });
-    }
-
-    function attachClaimEvents() {
-      document.querySelectorAll('.claim-btn').forEach(btn => {
-        btn.addEventListener('click', () => {
-          const name = btn.dataset.name;
-          const item = prompt(`Enter item claimed by ${name}:`);
-          const cost = parseInt(prompt("Enter points used:"));
-          if (!item || isNaN(cost)) return;
-          leaderboard[name] = Math.max((leaderboard[name] || 0) - cost, 0);
-          claimHistory.push({ name, item, points: cost, date: new Date().toLocaleString() });
-          saveData();
-          renderLeaderboard();
-          renderClaimHistory();
-        });
-      });
-    }
-
-    downloadDataBtn.addEventListener('click', downloadData);
-    loadData();
+    document.getElementById('downloadBtn').addEventListener('click', downloadData);
   </script>
 </body>
 </html>
