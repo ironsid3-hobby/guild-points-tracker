@@ -35,7 +35,7 @@
         <button id="addCsvBtn" class="bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded text-white font-semibold hidden mt-2">Add CSV</button>
       </div>
 
-      <!-- Claim History (moved here) -->
+      <!-- Claim History -->
       <div class="bg-gray-800 p-4 rounded-xl shadow">
         <h2 class="text-lg font-semibold mb-3 text-green-400">📜 Claim History</h2>
         <table class="w-full text-left border-collapse text-sm" id="claimHistoryTable">
@@ -121,6 +121,52 @@
       URL.revokeObjectURL(url);
     }
 
+    // ✅ Compute similarity between two strings
+    function stringSimilarity(a, b) {
+      a = a.toLowerCase();
+      b = b.toLowerCase();
+      const matrix = [];
+      for (let i = 0; i <= b.length; i++) matrix[i] = [i];
+      for (let j = 0; j <= a.length; j++) matrix[0][j] = j;
+
+      for (let i = 1; i <= b.length; i++) {
+        for (let j = 1; j <= a.length; j++) {
+          if (b.charAt(i - 1) === a.charAt(j - 1)) {
+            matrix[i][j] = matrix[i - 1][j - 1];
+          } else {
+            matrix[i][j] = Math.min(
+              matrix[i - 1][j - 1] + 1,
+              matrix[i][j - 1] + 1,
+              matrix[i - 1][j] + 1
+            );
+          }
+        }
+      }
+
+      const distance = matrix[b.length][a.length];
+      const maxLen = Math.max(a.length, b.length);
+      return 1 - distance / maxLen;
+    }
+
+    // ✅ Find existing name that’s very similar
+    function findSimilarName(name) {
+      const entries = Object.keys(leaderboard);
+      const lowerName = name.toLowerCase();
+      let bestMatch = null;
+      let highestScore = 0;
+
+      for (const existing of entries) {
+        const score = stringSimilarity(existing, lowerName);
+        if (score > highestScore) {
+          highestScore = score;
+          bestMatch = existing;
+        }
+      }
+
+      // threshold: 0.8 = 80% similar
+      return highestScore >= 0.8 ? bestMatch : null;
+    }
+
     function renderLeaderboard() {
       leaderboardBody.innerHTML = '';
       Object.entries(leaderboard)
@@ -198,7 +244,20 @@
       const names = logInput.value.trim().split('\n').map(n => n.trim()).filter(n => n);
       const points = parseInt(pointsToAdd.value);
       if (names.length === 0 || isNaN(points)) return alert('Enter names and points!');
-      names.forEach(name => leaderboard[name] = (leaderboard[name] || 0) + points);
+
+      names.forEach(name => {
+        const similar = findSimilarName(name);
+        if (similar && similar !== name) {
+          if (confirm(`"${name}" looks very similar to existing "${similar}". Merge points into "${similar}"?`)) {
+            leaderboard[similar] = (leaderboard[similar] || 0) + points;
+          } else {
+            leaderboard[name] = (leaderboard[name] || 0) + points;
+          }
+        } else {
+          leaderboard[name] = (leaderboard[name] || 0) + points;
+        }
+      });
+
       saveData();
       renderLeaderboard();
       logInput.value = '';
@@ -210,8 +269,20 @@
       lines.forEach(line => {
         const [name, pts] = line.split(',').map(x => x.trim());
         const points = parseInt(pts);
-        if (name && !isNaN(points)) leaderboard[name] = (leaderboard[name] || 0) + points;
+        if (name && !isNaN(points)) {
+          const similar = findSimilarName(name);
+          if (similar && similar !== name) {
+            if (confirm(`"${name}" looks very similar to existing "${similar}". Merge points into "${similar}"?`)) {
+              leaderboard[similar] = (leaderboard[similar] || 0) + points;
+            } else {
+              leaderboard[name] = (leaderboard[name] || 0) + points;
+            }
+          } else {
+            leaderboard[name] = (leaderboard[name] || 0) + points;
+          }
+        }
       });
+
       saveData();
       renderLeaderboard();
       csvInput.value = '';
