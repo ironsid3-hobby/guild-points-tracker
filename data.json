@@ -11,10 +11,10 @@
     "AbuSayaf": 238,
     "Symphony": 224,
     "Rixx": 198,
-    "Fighter": 198,
+    "Fighter": 173,
     "FLynnHaritH": 200,
     "zSlow": 202,
-    "KingRagnar": 46,
+    "KingRagnar": 0,
     "Miso": 182,
     "NeiRPlayeR": 184,
     "Kingkoy": 186,
@@ -24,7 +24,6 @@
     "mamaw": 148,
     "Malignant": 160,
     "Tokyo": 154,
-    "Toburita": 148,
     "KharmaX": 138,
     "DemiGOD": 146,
     "DevilsAdvocate": 142,
@@ -76,7 +75,8 @@
     "Belzeebubzzzz": 2,
     "PerroSanxe": 6,
     "Hinata": 12,
-    "PinOyAkO": 6
+    "PinOyAkO": 6,
+    "Toburita": 48
   },
   "claimHistory": [
     {
@@ -96,6 +96,18 @@
       "item": "Forb. Ratuni",
       "points": 100,
       "date": "10/19/2025, 10:50:52 AM"
+    },
+    {
+      "name": "Fighter",
+      "item": "GAVI 1 PC",
+      "points": 25,
+      "date": "10/25/2025, 11:29:29 AM"
+    },
+    {
+      "name": "KingRagnar",
+      "item": "GAVI 2 PCS",
+      "points": 50,
+      "date": "10/25/2025, 11:29:59 AM"
     }
   ]
 }
