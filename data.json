@@ -4,7 +4,7 @@
     "Seven": 314,
     "PkAshborn": 308,
     "Phelation": 170,
-    "IRON": 300,
+    "IRON": 150,
     "ItsNotNice": 292,
     "YudaGOD": 258,
     "Ayeezhu": 274,
@@ -20,7 +20,7 @@
     "Kingkoy": 222,
     "B3nK3n": 194,
     "Itryo": 180,
-    "NaTaLee": 202,
+    "NaTaLee": 52,
     "mamaw": 174,
     "Malignant": 202,
     "Tokyo": 164,
@@ -122,6 +122,18 @@
       "item": "Forb Adier Garb",
       "points": 150,
       "date": "10/28/2025, 10:18:04 PM"
+    },
+    {
+      "name": "NaTaLee",
+      "item": "Forb. Adier Garb",
+      "points": 150,
+      "date": "10/28/2025, 11:11:42 PM"
+    },
+    {
+      "name": "IRON",
+      "item": "Forb. Adier Garb",
+      "points": 150,
+      "date": "10/28/2025, 11:11:47 PM"
     }
   ]
 }
