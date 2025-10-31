@@ -2,7 +2,7 @@
   "leaderboard": {
     "Daeva": 360,
     "Seven": 344,
-    "PkAshborn": 196,
+    "PkAshborn": 346,
     "Phelation": 206,
     "IRON": 170,
     "ItsNotNice": 324,
@@ -16,7 +16,7 @@
     "zSlow": 112,
     "KingRagnar": 40,
     "Miso": 214,
-    "NeiRPlayeR": 242,
+    "NeiRPlayeR": 92,
     "Kingkoy": 234,
     "B3nK3n": 216,
     "Itryo": 192,
@@ -134,16 +134,16 @@
       "date": "10/28/2025, 11:11:47 PM"
     },
     {
-      "name": "PkAshborn",
-      "item": "Forb. Sopy Suit",
-      "points": 150,
-      "date": "10/28/2025, 11:24:05 PM"
-    },
-    {
       "name": "zSlow",
       "item": "Forb. Sopy Armor",
       "points": 150,
       "date": "10/31/2025, 2:34:51 PM"
+    },
+    {
+      "name": "NeiRPlayeR",
+      "item": "Forb. Sopy Helm",
+      "points": 150,
+      "date": "10/31/2025, 2:46:16 PM"
     }
   ]
 }
