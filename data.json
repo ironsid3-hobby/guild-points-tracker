@@ -13,7 +13,7 @@
     "Rixx": 262,
     "Fighter": 211,
     "FLynnHaritH": 252,
-    "zSlow": 262,
+    "zSlow": 112,
     "KingRagnar": 40,
     "Miso": 214,
     "NeiRPlayeR": 242,
@@ -138,6 +138,12 @@
       "item": "Forb. Sopy Suit",
       "points": 150,
       "date": "10/28/2025, 11:24:05 PM"
+    },
+    {
+      "name": "zSlow",
+      "item": "Forb. Sopy Armor",
+      "points": 150,
+      "date": "10/31/2025, 2:34:51 PM"
     }
   ]
 }
