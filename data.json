@@ -25,7 +25,7 @@
     "xHELENA": 236,
     "AnaFreya": 250,
     "Gken": 258,
-    "TorpedO": 224,
+    "TorpedO": 164,
     "AbuSayaf": 228,
     "Daeva": 206,
     "FLynnHaritH": 218,
@@ -288,6 +288,12 @@
       "item": "10 prajati",
       "points": 60,
       "date": "11/12/2025, 6:01:32 PM"
+    },
+    {
+      "name": "TorpedO",
+      "item": "10 pcs prajati",
+      "points": 60,
+      "date": "11/12/2025, 8:12:17 PM"
     }
   ]
 }
