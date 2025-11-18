@@ -34,7 +34,7 @@
     "ReaLMe": 222,
     "mamaw": 176,
     "Skanda": 94,
-    "NeiRPlayeR": 230,
+    "NeiRPlayeR": 232,
     "SYLPHY": 314,
     "Keizee": 38,
     "Nyeel": 34,
@@ -46,7 +46,7 @@
     "Mamugsitay": 176,
     "WindRanger": 158,
     "PinOyAkO": 168,
-    "NaTaLee": 216,
+    "NaTaLee": 66,
     "KIMCHII": 146,
     "TheHermit": 216,
     "SELENA": 166,
@@ -60,7 +60,7 @@
     "Shook": 144,
     "JaedenMacey": 54,
     "B3nK3n": 112,
-    "KingRagnar": 127,
+    "KingRagnar": 129,
     "Ruby": 110,
     "Toburita": 226,
     "xCrypto": 92,
@@ -90,8 +90,6 @@
     "Hinata": 12,
     "GeezMax007": 24,
     "marky": 2,
-    "NeiRPlayer": 2,
-    "Kingragnar": 2,
     "Plumpyyy": 24,
     "WayKAON": 6,
     "Jaedenmacey": 2,
@@ -320,6 +318,12 @@
       "item": "1 pc Gavi",
       "points": 25,
       "date": "11/16/2025, 11:45:45 PM"
+    },
+    {
+      "name": "NaTaLee",
+      "item": "Forb Adier Pants",
+      "points": 150,
+      "date": "11/17/2025, 11:19:57 PM"
     }
   ]
 }
