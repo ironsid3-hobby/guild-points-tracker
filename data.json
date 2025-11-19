@@ -1,7 +1,7 @@
 {
   "leaderboard": {
     "ItsNotNice0016": 454,
-    "YudaGOD": 334,
+    "YudaGOD": 184,
     "Symphony": 346,
     "Ayeezhu": 386,
     "Shada": 84,
@@ -14,7 +14,7 @@
     "Kingkoy": 54,
     "Aoife": 300,
     "DevilsAdvocate": 276,
-    "Itryo": 290,
+    "Itryo": 265,
     "TIGASIN": 93,
     "Haku": 36,
     "Stussy": 46,
@@ -34,7 +34,7 @@
     "ReaLMe": 222,
     "mamaw": 176,
     "Skanda": 94,
-    "NeiRPlayeR": 232,
+    "NeiRPlayeR": 382,
     "SYLPHY": 314,
     "Keizee": 38,
     "Nyeel": 34,
@@ -82,14 +82,13 @@
     "ChaosMyth": 32,
     "IRON": 132,
     "Whoppy": 144,
-    "Marky": 42,
+    "Marky": 44,
     "moonshine": 64,
     "ChinChura": 44,
     "y0cAmAtzZz": 28,
     "FLYLOW": 114,
     "Hinata": 12,
     "GeezMax007": 24,
-    "marky": 2,
     "Plumpyyy": 24,
     "WayKAON": 6,
     "Jaedenmacey": 2,
@@ -144,12 +143,6 @@
       "item": "Forb. Sopy Armor",
       "points": 150,
       "date": "10/31/2025, 2:34:51 PM"
-    },
-    {
-      "name": "NeiRPlayeR",
-      "item": "Forb. Sopy Armor",
-      "points": 150,
-      "date": "10/31/2025, 3:51:49 PM"
     },
     {
       "name": "Seven",
@@ -324,6 +317,18 @@
       "item": "Forb Adier Pants",
       "points": 150,
       "date": "11/17/2025, 11:19:57 PM"
+    },
+    {
+      "name": "Itryo",
+      "item": "1 pc Gavi",
+      "points": 25,
+      "date": "11/18/2025, 4:38:11 PM"
+    },
+    {
+      "name": "YudaGOD",
+      "item": "Forb Adier Garb",
+      "points": 150,
+      "date": "11/18/2025, 4:38:25 PM"
     }
   ]
 }
