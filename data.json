@@ -51,7 +51,7 @@
     "TheHermit": 276,
     "SELENA": 192,
     "Wylfredo": 18,
-    "KARTENON": 172,
+    "KARTENON": 4,
     "Momo": 164,
     "MaoMao": 166,
     "Vykas": 122,
@@ -423,6 +423,18 @@
       "item": "10 Prajatis",
       "points": 60,
       "date": "11/21/2025, 4:31:01 AM"
+    },
+    {
+      "name": "KARTENON",
+      "item": "Forb Sita helm",
+      "points": 150,
+      "date": "11/21/2025, 12:35:46 PM"
+    },
+    {
+      "name": "KARTENON",
+      "item": "3 Prajati",
+      "points": 18,
+      "date": "11/21/2025, 12:45:40 PM"
     }
   ]
 }
