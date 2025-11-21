@@ -9,23 +9,23 @@
     "Malignant": 350,
     "PkAshborn": 284,
     "Miso": 310,
-    "Seven": 294,
+    "Seven": 288,
     "Phelation": 238,
     "Kingkoy": 102,
     "Aoife": 342,
     "DevilsAdvocate": 318,
-    "Itryo": 268,
+    "Itryo": 293,
     "TIGASIN": 115,
     "Haku": 74,
     "Stussy": 92,
     "wayKAON": 22,
     "SisiG": 94,
-    "waldo": 54,
+    "waldo": 58,
     "CillianAlejandro": 94,
     "xHELENA": 14,
     "AnaFreya": 302,
     "Gken": 150,
-    "TorpedO": 150,
+    "TorpedO": 156,
     "AbuSayaf": 106,
     "Daeva": 230,
     "FLynnHaritH": 290,
@@ -34,7 +34,7 @@
     "ReaLMe": 112,
     "mamaw": 176,
     "Skanda": 120,
-    "NeiRPlayeR": 294,
+    "NeiRPlayeR": 298,
     "SYLPHY": 210,
     "Keizee": 50,
     "Nyeel": 74,
@@ -67,7 +67,7 @@
     "Tokyo": 110,
     "Reilyn": 36,
     "PerroSanxe": 28,
-    "Monma": 96,
+    "Monma": 98,
     "Sumeru": 86,
     "Castiel": 114,
     "MsEna": 106,
@@ -82,7 +82,7 @@
     "Whoppy": 186,
     "Marky": 80,
     "moonshine": 108,
-    "ChinChura": 106,
+    "ChinChura": 108,
     "y0cAmAtzZz": 64,
     "FLYLOW": 120,
     "GeezMax007": 84,
@@ -90,11 +90,7 @@
     "GLOO": 38,
     "KtChang": 62,
     "Belzebubzzzzz": 178,
-    "Torpedo": 6,
-    "Chinchura": 2,
     "Blur": 6,
-    "Waldo": 4,
-    "NeiRPlayer": 4,
     "Ging": 6
   },
   "claimHistory": [
@@ -321,12 +317,6 @@
       "date": "11/17/2025, 11:19:57 PM"
     },
     {
-      "name": "Itryo",
-      "item": "1 pc Gavi",
-      "points": 25,
-      "date": "11/18/2025, 4:38:11 PM"
-    },
-    {
       "name": "YudaGOD",
       "item": "Forb Adier Garb",
       "points": 150,
@@ -436,3 +426,5 @@
     }
   ]
 }
+data (30).json
+9 KB
