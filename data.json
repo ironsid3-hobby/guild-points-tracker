@@ -27,7 +27,7 @@
     "Gken": 318,
     "TorpedO": 234,
     "AbuSayaf": 274,
-    "Daeva": 298,
+    "Daeva": 148,
     "FLynnHaritH": 216,
     "Teso": 150,
     "Minions": 334,
@@ -697,6 +697,12 @@
       "item": "Partial deduction for forb atari 82 points lacks 18",
       "points": 82,
       "date": "12/10/2025, 12:33:30 AM"
+    },
+    {
+      "name": "Daeva",
+      "item": "Forb Sitah Pants",
+      "points": 150,
+      "date": "12/10/2025, 12:48:08 AM"
     }
   ]
 }
