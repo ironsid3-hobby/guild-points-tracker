@@ -81,7 +81,7 @@
     "KtChang": 148,
     "Belzebubzzzzz": 256,
     "Ging": 96,
-    "DJANGO": 26,
+    "DJANGO": 8,
     "PHILIPPINES": 116,
     "ChuckNorris": 94,
     "HaiLeyOrz": 62,
@@ -807,6 +807,12 @@
       "item": "Forb Ratuni",
       "points": 100,
       "date": "12/15/2025, 3:07:34 AM"
+    },
+    {
+      "name": "DJANGO",
+      "item": "Forb Atari final payment",
+      "points": 18,
+      "date": "12/15/2025, 3:18:59 AM"
     }
   ]
 }
