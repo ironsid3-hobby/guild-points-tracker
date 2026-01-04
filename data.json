@@ -5,27 +5,27 @@
     "Symphony": 492,
     "Ayeezhu": 614,
     "Shada": 208,
-    "Rixx": 250,
+    "Rixx": 214,
     "Malignant": 535,
     "PkAshborn": 389,
     "Miso": 560,
     "Seven": 266,
     "Phelation": 506,
-    "Kingkoy": 226,
-    "Aoife": 547,
-    "DevilsAdvocate": 419,
+    "Kingkoy": 10,
+    "Aoife": 397,
+    "DevilsAdvocate": 389,
     "Itryo": 410,
     "TIGASIN": 44,
     "Haku": 176,
-    "Stussy": 282,
+    "Stussy": 182,
     "wayKAON": 74,
     "SisiG": 203,
     "waldo": 236,
     "xHELENA": 116,
-    "Gken": 370,
+    "Gken": 340,
     "TorpedO": 334,
-    "AbuSayaf": 269,
-    "Daeva": 208,
+    "AbuSayaf": 119,
+    "Daeva": 34,
     "FLynnHaritH": 80,
     "Teso": 173,
     "Minions": 313,
@@ -39,8 +39,8 @@
     "Dreinn": 224,
     "KharmaX": 282,
     "Zoey": 442,
-    "Mamugsitay": 336,
-    "WindRanger": 416,
+    "Mamugsitay": 186,
+    "WindRanger": 236,
     "PinOyAkO": 271,
     "NaTaLee": 196,
     "KIMCHII": 281,
@@ -49,7 +49,7 @@
     "Wylfredo": 87,
     "KARTENON": 132,
     "Momo": 326,
-    "MaoMao": 528,
+    "MaoMao": 378,
     "Vykas": 122,
     "ReginaSpektor": 136,
     "Shook": 439,
@@ -57,7 +57,7 @@
     "B3nK3n": 398,
     "KingRagnar": 127,
     "Ruby": 165,
-    "ABRAVE": 446,
+    "ABRAVE": 416,
     "Tokyo": 306,
     "Reilyn": 164,
     "Sumeru": 134,
@@ -72,7 +72,7 @@
     "Marky": 124,
     "ChinChura": 311,
     "y0cAmAtzZz": 98,
-    "FLYLOW": 265,
+    "FLYLOW": 129,
     "GeezMax007": 454,
     "Plumpyyy": 147,
     "KtChang": 125,
@@ -82,7 +82,7 @@
     "PHILIPPINES": 196,
     "ChuckNorris": 90,
     "HaiLeyOrz": 118,
-    "Asiel": 110,
+    "Asiel": 10,
     "Charlatan": 196,
     "TOSH": 86,
     "Bingzuuu": 133,
@@ -98,11 +98,11 @@
     "ItadaKimasu": 157,
     "lazer": 47,
     "iluvtolick": 4,
-    "Alii": 125,
+    "Alii": 25,
     "GiyuTomioka": 4,
     "Acnologia": 180,
     "xKeana": 166,
-    "CillianAlejandro": 328,
+    "CillianAlejandro": 178,
     "JoNamZ": 34,
     "pechitos": 24,
     "Abyzou": 6
@@ -965,6 +965,132 @@
       "item": "Forb Atari",
       "points": 100,
       "date": "12/31/2025, 5:24:38 AM"
+    },
+    {
+      "name": "AbuSayaf",
+      "item": "Forb Soupy Helm",
+      "points": 150,
+      "date": "1/4/2026, 12:37:34 AM"
+    },
+    {
+      "name": "Daeva",
+      "item": "Forb Sitah Armor",
+      "points": 150,
+      "date": "1/4/2026, 12:37:49 AM"
+    },
+    {
+      "name": "Asiel",
+      "item": "Forb Khrati",
+      "points": 100,
+      "date": "1/4/2026, 12:38:14 AM"
+    },
+    {
+      "name": "Stussy",
+      "item": "Forb Ratuni",
+      "points": 100,
+      "date": "1/4/2026, 12:38:55 AM"
+    },
+    {
+      "name": "FLYLOW",
+      "item": "Forb Ratuni",
+      "points": 100,
+      "date": "1/4/2026, 12:39:13 AM"
+    },
+    {
+      "name": "FLYLOW",
+      "item": "1 piece Prajati",
+      "points": 6,
+      "date": "1/4/2026, 12:39:56 AM"
+    },
+    {
+      "name": "FLYLOW",
+      "item": "5 pcs Prajati",
+      "points": 30,
+      "date": "1/4/2026, 12:40:30 AM"
+    },
+    {
+      "name": "CillianAlejandro",
+      "item": "Forb Adier Garb/Armor",
+      "points": 150,
+      "date": "1/4/2026, 12:42:26 AM"
+    },
+    {
+      "name": "Aoife",
+      "item": "Forb Soupy Helm",
+      "points": 150,
+      "date": "1/4/2026, 12:42:51 AM"
+    },
+    {
+      "name": "WindRanger",
+      "item": "Forb Soupy Shoes",
+      "points": 150,
+      "date": "1/4/2026, 12:43:17 AM"
+    },
+    {
+      "name": "Mamugsitay",
+      "item": "Forb Soupy Pants",
+      "points": 150,
+      "date": "1/4/2026, 12:43:39 AM"
+    },
+    {
+      "name": "Rixx",
+      "item": "6 Prajati",
+      "points": 36,
+      "date": "1/4/2026, 12:44:06 AM"
+    },
+    {
+      "name": "WindRanger",
+      "item": "5 Pcs Prajati",
+      "points": 30,
+      "date": "1/4/2026, 12:45:25 AM"
+    },
+    {
+      "name": "Gken",
+      "item": "5 pcs Prajati",
+      "points": 30,
+      "date": "1/4/2026, 12:45:45 AM"
+    },
+    {
+      "name": "Alii",
+      "item": "Forb Ratuni",
+      "points": 100,
+      "date": "1/4/2026, 12:46:01 AM"
+    },
+    {
+      "name": "MaoMao",
+      "item": "Forb Soupy Shoes",
+      "points": 150,
+      "date": "1/4/2026, 12:47:25 AM"
+    },
+    {
+      "name": "Kingkoy",
+      "item": "Forb Sitah Shoes",
+      "points": 150,
+      "date": "1/4/2026, 12:47:37 AM"
+    },
+    {
+      "name": "Kingkoy",
+      "item": "11 pcs Prajati",
+      "points": 66,
+      "date": "1/4/2026, 12:47:59 AM"
+    },
+    {
+      "name": "DevilsAdvocate",
+      "item": "5 Pcs Prajati",
+      "points": 30,
+      "date": "1/4/2026, 12:48:18 AM"
+    },
+    {
+      "name": "ABRAVE",
+      "item": "5 pcs Prajati",
+      "points": 30,
+      "date": "1/4/2026, 12:48:32 AM"
+    },
+    {
+      "name": "Daeva",
+      "item": "4 Pcs Prajati",
+      "points": 24,
+      "date": "1/4/2026, 12:48:59 AM"
     }
   ]
 }
