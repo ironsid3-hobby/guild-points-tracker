@@ -1,10 +1,10 @@
 {
   "leaderboard": {
-    "ItsNotNice0016": 652,
+    "ItsNotNice0016": 502,
     "YudaGOD": 535,
     "Symphony": 556,
     "Ayeezhu": 674,
-    "Shada": 248,
+    "Shada": 218,
     "Rixx": 256,
     "Malignant": 553,
     "PkAshborn": 411,
@@ -31,7 +31,7 @@
     "Minions": 339,
     "ReaLMe": 264,
     "mamaw": 194,
-    "Skanda": 336,
+    "Skanda": 156,
     "NeiRPlayeR": 436,
     "SYLPHY": 388,
     "Nyeel": 111,
@@ -43,7 +43,7 @@
     "WindRanger": 300,
     "PinOyAkO": 323,
     "NaTaLee": 230,
-    "KIMCHII": 299,
+    "KIMCHII": 269,
     "TheHermit": 440,
     "SELENA": 252,
     "Wylfredo": 111,
@@ -63,9 +63,9 @@
     "Sumeru": 158,
     "MsEna": 176,
     "HiNaTa": 180,
-    "DemiGOD": 324,
+    "DemiGOD": 144,
     "KangJaka": 81,
-    "Ragnar": 54,
+    "Ragnar": 36,
     "ChaosMyth": 32,
     "IRON": 246,
     "Whoppy": 330,
@@ -1103,6 +1103,54 @@
       "item": "15 pcs Prajati",
       "points": 90,
       "date": "1/4/2026, 1:53:31 AM"
+    },
+    {
+      "name": "Skanda",
+      "item": "Forb Adier Pants",
+      "points": 150,
+      "date": "1/4/2026, 8:42:28 AM"
+    },
+    {
+      "name": "ItsNotNice0016",
+      "item": "Forb Adier Shoes",
+      "points": 150,
+      "date": "1/4/2026, 8:42:55 AM"
+    },
+    {
+      "name": "DemiGOD",
+      "item": "Forb Adier Pants",
+      "points": 150,
+      "date": "1/4/2026, 8:43:19 AM"
+    },
+    {
+      "name": "DemiGOD",
+      "item": "5 pcs Prajati",
+      "points": 30,
+      "date": "1/4/2026, 8:52:48 AM"
+    },
+    {
+      "name": "Skanda",
+      "item": "5 pcs Prajati",
+      "points": 30,
+      "date": "1/4/2026, 8:53:01 AM"
+    },
+    {
+      "name": "KIMCHII",
+      "item": "5 pcs Prajati",
+      "points": 30,
+      "date": "1/4/2026, 8:53:26 AM"
+    },
+    {
+      "name": "Ragnar",
+      "item": "3 pcs Prajati",
+      "points": 18,
+      "date": "1/4/2026, 8:53:41 AM"
+    },
+    {
+      "name": "Shada",
+      "item": "5 pcs Prajati",
+      "points": 30,
+      "date": "1/4/2026, 8:53:57 AM"
     }
   ]
 }
