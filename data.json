@@ -4,7 +4,7 @@
     "YudaGOD": 535,
     "Symphony": 556,
     "Ayeezhu": 674,
-    "Shada": 218,
+    "Shada": 68,
     "Rixx": 256,
     "Malignant": 553,
     "PkAshborn": 411,
@@ -1151,6 +1151,12 @@
       "item": "5 pcs Prajati",
       "points": 30,
       "date": "1/4/2026, 8:53:57 AM"
+    },
+    {
+      "name": "Shada",
+      "item": "Forb Pzeur Shoes",
+      "points": 150,
+      "date": "1/4/2026, 9:02:17 AM"
     }
   ]
 }
