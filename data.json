@@ -27,7 +27,7 @@
     "AbuSayaf": 181,
     "Daeva": 94,
     "FLynnHaritH": 14,
-    "Teso": 227,
+    "Teso": 327,
     "Minions": 339,
     "ReaLMe": 264,
     "mamaw": 194,
@@ -73,7 +73,7 @@
     "ChinChura": 331,
     "y0cAmAtzZz": 98,
     "FLYLOW": 147,
-    "GeezMax007": 508,
+    "GeezMax007": 408,
     "Plumpyyy": 155,
     "KtChang": 155,
     "Belzebubzzzzz": 383,
@@ -227,12 +227,6 @@
       "item": "Forb Sita Pants",
       "points": 150,
       "date": "11/10/2025, 7:34:17 PM"
-    },
-    {
-      "name": "Teso",
-      "item": "Forb Bao",
-      "points": 100,
-      "date": "11/10/2025, 7:36:54 PM"
     },
     {
       "name": "Rixx",
@@ -1157,6 +1151,12 @@
       "item": "Forb Pzeur Shoes",
       "points": 150,
       "date": "1/4/2026, 9:02:17 AM"
+    },
+    {
+      "name": "GeezMax007",
+      "item": "+9 Forb Bao",
+      "points": 100,
+      "date": "1/5/2026, 12:08:31 AM"
     }
   ]
 }
