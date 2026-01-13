@@ -286,7 +286,7 @@
           const item = prompt(`Enter item claimed by ${name}:`);
           const cost = parseInt(prompt("Enter points used:"));
           if (!item || isNaN(cost)) return;
-          leaderboard[name] = Math.max((leaderboard[name] || 0) - cost, 0);
+          leaderboard[name] = (leaderboard[name] || 0) - cost;
           claimHistory.push({ name, item, points: cost, date: new Date().toLocaleString() });
           saveData();
           renderLeaderboard();
@@ -300,3 +300,4 @@
   </script>
 </body>
 </html>
+
