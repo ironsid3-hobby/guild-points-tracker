@@ -5,48 +5,48 @@
     "Symphony": 116,
     "Ayeezhu": 160,
     "Shada": 92,
-    "Rixx": 298,
+    "Rixx": -202,
     "Malignant": 53,
     "PkAshborn": 441,
     "Miso": 138,
     "Seven": 334,
     "Phelation": 536,
     "Kingkoy": 104,
-    "Aoife": 457,
-    "DevilsAdvocate": 473,
-    "Itryo": 492,
+    "Aoife": -43,
+    "DevilsAdvocate": -27,
+    "Itryo": -8,
     "TIGASIN": 122,
     "Haku": 202,
     "Stussy": 284,
     "wayKAON": 74,
     "SisiG": 269,
-    "waldo": 164,
+    "waldo": -336,
     "xHELENA": 122,
-    "Gken": 456,
+    "Gken": -44,
     "TorpedO": 394,
     "AbuSayaf": 239,
     "Daeva": 100,
     "FLynnHaritH": 58,
-    "Teso": 357,
+    "Teso": -143,
     "Minions": 345,
     "ReaLMe": 166,
     "mamaw": 194,
-    "Skanda": 182,
-    "NeiRPlayeR": 476,
-    "SYLPHY": 400,
+    "Skanda": -318,
+    "NeiRPlayeR": -24,
+    "SYLPHY": -100,
     "Nyeel": 111,
-    "zSlow": 191,
+    "zSlow": -309,
     "Dreinn": 224,
-    "KharmaX": 314,
-    "Zoey": 426,
-    "Mamugsitay": 234,
+    "KharmaX": -186,
+    "Zoey": -74,
+    "Mamugsitay": -266,
     "WindRanger": 344,
-    "PinOyAkO": 355,
+    "PinOyAkO": -145,
     "NaTaLee": 268,
     "KIMCHII": 275,
     "TheHermit": 482,
     "SELENA": 252,
-    "Wylfredo": 123,
+    "Wylfredo": -377,
     "KARTENON": 138,
     "Momo": 396,
     "MaoMao": 486,
@@ -54,16 +54,16 @@
     "ReginaSpektor": 204,
     "Shook": 5,
     "JaedenMacey": 112,
-    "B3nK3n": 482,
+    "B3nK3n": -18,
     "KingRagnar": 17,
-    "Ruby": 229,
-    "ABRAVE": 370,
-    "Tokyo": 400,
+    "Ruby": -271,
+    "ABRAVE": -130,
+    "Tokyo": -100,
     "Reilyn": 172,
     "Sumeru": 180,
     "MsEna": 176,
     "HiNaTa": 180,
-    "DemiGOD": 138,
+    "DemiGOD": -362,
     "KangJaka": 81,
     "Ragnar": 80,
     "ChaosMyth": 32,
@@ -102,7 +102,7 @@
     "GiyuTomioka": 34,
     "Acnologia": 126,
     "xKeana": 194,
-    "CillianAlejandro": 290,
+    "CillianAlejandro": -210,
     "JoNamZ": 80,
     "pechitos": 38,
     "Abyzou": 100
@@ -1313,6 +1313,138 @@
       "item": "2pcs Prajati",
       "points": 12,
       "date": "1/13/2026, 2:41:41 PM"
+    },
+    {
+      "name": "Itryo",
+      "item": "Dark Xtal",
+      "points": 500,
+      "date": "1/13/2026, 2:46:46 PM"
+    },
+    {
+      "name": "B3nK3n",
+      "item": "Dark Xtal",
+      "points": 500,
+      "date": "1/13/2026, 2:47:14 PM"
+    },
+    {
+      "name": "NeiRPlayeR",
+      "item": "Dark Xtal",
+      "points": 500,
+      "date": "1/13/2026, 2:47:21 PM"
+    },
+    {
+      "name": "DevilsAdvocate",
+      "item": "Dark Xtal",
+      "points": 500,
+      "date": "1/13/2026, 2:47:33 PM"
+    },
+    {
+      "name": "Aoife",
+      "item": "Dark Xtal",
+      "points": 500,
+      "date": "1/13/2026, 2:47:39 PM"
+    },
+    {
+      "name": "Gken",
+      "item": "Dark Xtal",
+      "points": 500,
+      "date": "1/13/2026, 2:47:44 PM"
+    },
+    {
+      "name": "Zoey",
+      "item": "Dark Xtal",
+      "points": 500,
+      "date": "1/13/2026, 2:47:53 PM"
+    },
+    {
+      "name": "Tokyo",
+      "item": "Dark Xtal",
+      "points": 500,
+      "date": "1/13/2026, 2:49:01 PM"
+    },
+    {
+      "name": "SYLPHY",
+      "item": "Dark Xtal",
+      "points": 500,
+      "date": "1/13/2026, 2:49:20 PM"
+    },
+    {
+      "name": "ABRAVE",
+      "item": "Dark Xtal",
+      "points": 500,
+      "date": "1/13/2026, 2:49:30 PM"
+    },
+    {
+      "name": "Teso",
+      "item": "Dark Xtal",
+      "points": 500,
+      "date": "1/13/2026, 2:49:37 PM"
+    },
+    {
+      "name": "PinOyAkO",
+      "item": "Dark Xtal",
+      "points": 500,
+      "date": "1/13/2026, 2:49:41 PM"
+    },
+    {
+      "name": "KharmaX",
+      "item": "Dark Xtal",
+      "points": 500,
+      "date": "1/13/2026, 2:49:52 PM"
+    },
+    {
+      "name": "Rixx",
+      "item": "Dark Xtal",
+      "points": 500,
+      "date": "1/13/2026, 2:49:58 PM"
+    },
+    {
+      "name": "CillianAlejandro",
+      "item": "Dark Xtal",
+      "points": 500,
+      "date": "1/13/2026, 2:50:03 PM"
+    },
+    {
+      "name": "Mamugsitay",
+      "item": "Dark Xtal",
+      "points": 500,
+      "date": "1/13/2026, 2:50:50 PM"
+    },
+    {
+      "name": "Ruby",
+      "item": "Dark Xtal",
+      "points": 500,
+      "date": "1/13/2026, 2:50:55 PM"
+    },
+    {
+      "name": "zSlow",
+      "item": "Dark Xtal",
+      "points": 500,
+      "date": "1/13/2026, 2:51:20 PM"
+    },
+    {
+      "name": "Skanda",
+      "item": "Dark Xtal",
+      "points": 500,
+      "date": "1/13/2026, 2:51:26 PM"
+    },
+    {
+      "name": "waldo",
+      "item": "Dark Xtal",
+      "points": 500,
+      "date": "1/13/2026, 2:51:41 PM"
+    },
+    {
+      "name": "Wylfredo",
+      "item": "Dark Xtal",
+      "points": 500,
+      "date": "1/13/2026, 2:53:04 PM"
+    },
+    {
+      "name": "DemiGOD",
+      "item": "Dark Xtal",
+      "points": 500,
+      "date": "1/13/2026, 2:53:26 PM"
     }
   ]
 }
