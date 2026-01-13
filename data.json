@@ -1,35 +1,35 @@
 {
   "leaderboard": {
-    "ItsNotNice0016": 560,
+    "ItsNotNice0016": 60,
     "YudaGOD": 571,
-    "Symphony": 616,
-    "Ayeezhu": 690,
+    "Symphony": 116,
+    "Ayeezhu": 160,
     "Shada": 92,
     "Rixx": 298,
-    "Malignant": 553,
+    "Malignant": 53,
     "PkAshborn": 441,
-    "Miso": 638,
+    "Miso": 138,
     "Seven": 334,
-    "Phelation": 626,
+    "Phelation": 536,
     "Kingkoy": 104,
     "Aoife": 457,
     "DevilsAdvocate": 473,
     "Itryo": 492,
-    "TIGASIN": 158,
+    "TIGASIN": 122,
     "Haku": 202,
     "Stussy": 284,
     "wayKAON": 74,
     "SisiG": 269,
-    "waldo": 314,
-    "xHELENA": 212,
+    "waldo": 164,
+    "xHELENA": 122,
     "Gken": 456,
     "TorpedO": 394,
     "AbuSayaf": 239,
-    "Daeva": 130,
+    "Daeva": 100,
     "FLynnHaritH": 58,
     "Teso": 357,
     "Minions": 345,
-    "ReaLMe": 316,
+    "ReaLMe": 166,
     "mamaw": 194,
     "Skanda": 182,
     "NeiRPlayeR": 476,
@@ -38,7 +38,7 @@
     "zSlow": 191,
     "Dreinn": 224,
     "KharmaX": 314,
-    "Zoey": 486,
+    "Zoey": 426,
     "Mamugsitay": 234,
     "WindRanger": 344,
     "PinOyAkO": 355,
@@ -52,18 +52,18 @@
     "MaoMao": 486,
     "Vykas": 122,
     "ReginaSpektor": 204,
-    "Shook": 505,
+    "Shook": 5,
     "JaedenMacey": 112,
     "B3nK3n": 482,
     "KingRagnar": 17,
     "Ruby": 229,
-    "ABRAVE": 520,
+    "ABRAVE": 370,
     "Tokyo": 400,
     "Reilyn": 172,
     "Sumeru": 180,
     "MsEna": 176,
     "HiNaTa": 180,
-    "DemiGOD": 168,
+    "DemiGOD": 138,
     "KangJaka": 81,
     "Ragnar": 80,
     "ChaosMyth": 32,
@@ -76,7 +76,7 @@
     "GeezMax007": 454,
     "Plumpyyy": 167,
     "KtChang": 171,
-    "Belzebubzzzzz": 405,
+    "Belzebubzzzzz": 375,
     "Ging": 252,
     "DJANGO": 134,
     "PHILIPPINES": 272,
@@ -86,10 +86,10 @@
     "Charlatan": 222,
     "TOSH": 92,
     "Bingzuuu": 181,
-    "Psychopath": 230,
+    "Psychopath": 130,
     "PosetroN": 120,
     "SianGREY": 291,
-    "SirLiOn": 108,
+    "SirLiOn": 90,
     "rumi": 52,
     "Morp": 134,
     "lathaliah": 2,
@@ -100,12 +100,12 @@
     "iluvtolick": 4,
     "Alii": 125,
     "GiyuTomioka": 34,
-    "Acnologia": 156,
+    "Acnologia": 126,
     "xKeana": 194,
     "CillianAlejandro": 290,
     "JoNamZ": 80,
     "pechitos": 38,
-    "Abyzou": 130
+    "Abyzou": 100
   },
   "claimHistory": [
     {
@@ -1175,6 +1175,144 @@
       "item": "6 pcs Prajati",
       "points": 36,
       "date": "1/9/2026, 2:56:10 PM"
+    },
+    {
+      "name": "Ayeezhu",
+      "item": "Dark Xtal",
+      "points": 500,
+      "date": "1/13/2026, 2:25:41 PM"
+    },
+    {
+      "name": "Miso",
+      "item": "Dark Xtal",
+      "points": 500,
+      "date": "1/13/2026, 2:25:50 PM"
+    },
+    {
+      "name": "Symphony",
+      "item": "Dark Xtal",
+      "points": 500,
+      "date": "1/13/2026, 2:26:01 PM"
+    },
+    {
+      "name": "ItsNotNice0016",
+      "item": "Dark Xtal",
+      "points": 500,
+      "date": "1/13/2026, 2:26:08 PM"
+    },
+    {
+      "name": "Malignant",
+      "item": "Dark Xtal",
+      "points": 500,
+      "date": "1/13/2026, 2:26:15 PM"
+    },
+    {
+      "name": "ABRAVE",
+      "item": "Forb Soupy Armor",
+      "points": 150,
+      "date": "1/13/2026, 2:26:47 PM"
+    },
+    {
+      "name": "Shook",
+      "item": "Dark Xtal",
+      "points": 500,
+      "date": "1/13/2026, 2:26:55 PM"
+    },
+    {
+      "name": "Psychopath",
+      "item": "Forb Bao",
+      "points": 100,
+      "date": "1/13/2026, 2:27:43 PM"
+    },
+    {
+      "name": "waldo",
+      "item": "Forb Soupy Pants",
+      "points": 150,
+      "date": "1/13/2026, 2:28:07 PM"
+    },
+    {
+      "name": "ReaLMe",
+      "item": "Forb Adier Shoes",
+      "points": 150,
+      "date": "1/13/2026, 2:30:30 PM"
+    },
+    {
+      "name": "Abyzou",
+      "item": "5 pcs Prajati",
+      "points": 30,
+      "date": "1/13/2026, 2:35:07 PM"
+    },
+    {
+      "name": "Acnologia",
+      "item": "5 pcs Prajati",
+      "points": 30,
+      "date": "1/13/2026, 2:35:27 PM"
+    },
+    {
+      "name": "SirLiOn",
+      "item": "3 pcs Prajati",
+      "points": 18,
+      "date": "1/13/2026, 2:36:08 PM"
+    },
+    {
+      "name": "TIGASIN",
+      "item": "6 Pcs prajati",
+      "points": 36,
+      "date": "1/13/2026, 2:36:31 PM"
+    },
+    {
+      "name": "Zoey",
+      "item": "8 pcs Prajati",
+      "points": 48,
+      "date": "1/13/2026, 2:37:27 PM"
+    },
+    {
+      "name": "Ayeezhu",
+      "item": "5pcs Prajati",
+      "points": 30,
+      "date": "1/13/2026, 2:37:51 PM"
+    },
+    {
+      "name": "Daeva",
+      "item": "5pcs Prajati",
+      "points": 30,
+      "date": "1/13/2026, 2:38:06 PM"
+    },
+    {
+      "name": "DemiGOD",
+      "item": "5pcs Prajati",
+      "points": 30,
+      "date": "1/13/2026, 2:39:22 PM"
+    },
+    {
+      "name": "Phelation",
+      "item": "15pcs Prajati",
+      "points": 90,
+      "date": "1/13/2026, 2:39:49 PM"
+    },
+    {
+      "name": "xHELENA",
+      "item": "15pcs prajati",
+      "points": 90,
+      "date": "1/13/2026, 2:40:23 PM"
+    },
+    {
+      "name": "Belzebubzzzzz",
+      "item": "3pcs Prajati",
+      "points": 18,
+      "date": "1/13/2026, 2:40:54 PM"
+    },
+    {
+      "name": "Zoey",
+      "item": "2pcs Prajati",
+      "points": 12,
+      "date": "1/13/2026, 2:41:19 PM"
+    },
+    {
+      "name": "Belzebubzzzzz",
+      "item": "2pcs Prajati",
+      "points": 12,
+      "date": "1/13/2026, 2:41:41 PM"
     }
   ]
 }
