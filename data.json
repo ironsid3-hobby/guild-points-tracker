@@ -8,15 +8,15 @@
     "Rixx": -131,
     "Malignant": 70,
     "PkAshborn": 508,
-    "Miso": 215,
+    "Miso": 65,
     "Seven": 419,
     "Phelation": 629,
     "Kingkoy": 214,
     "Aoife": 22,
     "DevilsAdvocate": 43,
-    "Itryo": 40,
+    "Itryo": -110,
     "TIGASIN": 219,
-    "Haku": 257,
+    "Haku": 107,
     "Stussy": 369,
     "wayKAON": 74,
     "SisiG": 184,
@@ -29,7 +29,7 @@
     "FLynnHaritH": 155,
     "Teso": -90,
     "Minions": 392,
-    "ReaLMe": 130,
+    "ReaLMe": 30,
     "Skanda": -274,
     "NeiRPlayeR": 49,
     "SYLPHY": -42,
@@ -42,13 +42,13 @@
     "WindRanger": 442,
     "PinOyAkO": -93,
     "NaTaLee": 373,
-    "KIMCHII": 333,
-    "TheHermit": 577,
+    "KIMCHII": 233,
+    "TheHermit": 427,
     "SELENA": 266,
     "Wylfredo": -330,
     "KARTENON": 196,
     "Momo": 499,
-    "MaoMao": 589,
+    "MaoMao": 439,
     "Vykas": 122,
     "ReginaSpektor": 248,
     "Shook": 92,
@@ -64,28 +64,28 @@
     "HiNaTa": 184,
     "DemiGOD": -283,
     "KangJaka": 93,
-    "Ragnar": 152,
+    "Ragnar": 2,
     "ChaosMyth": 32,
     "IRON": 226,
-    "Whoppy": 463,
+    "Whoppy": 313,
     "Marky": 146,
-    "ChinChura": 375,
+    "ChinChura": 225,
     "y0cAmAtzZz": 104,
     "FLYLOW": 235,
-    "GeezMax007": 563,
+    "GeezMax007": 413,
     "Plumpyyy": 201,
     "KtChang": 215,
     "Belzebubzzzzz": 449,
     "Ging": 264,
     "DJANGO": 192,
     "PHILIPPINES": 350,
-    "ChuckNorris": 253,
+    "ChuckNorris": 53,
     "HaiLeyOrz": 148,
     "Asiel": 179,
     "Charlatan": 306,
-    "TOSH": 92,
+    "TOSH": -8,
     "Bingzuuu": 69,
-    "Psychopath": 164,
+    "Psychopath": 134,
     "PosetroN": 126,
     "SianGREY": 309,
     "SirLiOn": 12,
@@ -95,7 +95,7 @@
     "Clumsy": 20,
     "AzR4el": 6,
     "ItadaKimasu": 157,
-    "lazer": 156,
+    "lazer": 56,
     "iluvtolick": 4,
     "Alii": 204,
     "GiyuTomioka": 102,
@@ -821,12 +821,6 @@
       "date": "12/24/2025, 11:22:37 AM"
     },
     {
-      "name": "ChuckNorris",
-      "item": "Forb ratuni",
-      "points": 100,
-      "date": "12/24/2025, 11:23:04 AM"
-    },
-    {
       "name": "TheHermit",
       "item": "Forb Khrati",
       "points": 100,
@@ -1509,6 +1503,102 @@
       "item": "15pcs Prajati",
       "points": 90,
       "date": "1/17/2026, 6:58:28 PM"
+    },
+    {
+      "name": "ChinChura",
+      "item": "Forb Sitah Shoes",
+      "points": 150,
+      "date": "1/18/2026, 10:40:24 PM"
+    },
+    {
+      "name": "Itryo",
+      "item": "Forb Soupy Shoes",
+      "points": 150,
+      "date": "1/18/2026, 10:40:47 PM"
+    },
+    {
+      "name": "ChuckNorris",
+      "item": "Forb Adier Shoes",
+      "points": 150,
+      "date": "1/18/2026, 10:41:32 PM"
+    },
+    {
+      "name": "ChuckNorris",
+      "item": "Forb Adier Pants",
+      "points": 150,
+      "date": "1/18/2026, 10:41:43 PM"
+    },
+    {
+      "name": "GeezMax007",
+      "item": "Forb Soupy Pants",
+      "points": 150,
+      "date": "1/18/2026, 10:42:09 PM"
+    },
+    {
+      "name": "Miso",
+      "item": "Forb Adier Shoes",
+      "points": 150,
+      "date": "1/18/2026, 10:42:25 PM"
+    },
+    {
+      "name": "Haku",
+      "item": "Forb Sitah Armor",
+      "points": 150,
+      "date": "1/18/2026, 10:42:43 PM"
+    },
+    {
+      "name": "ReaLMe",
+      "item": "Forb FS dull weap level 80",
+      "points": 100,
+      "date": "1/18/2026, 10:43:30 PM"
+    },
+    {
+      "name": "Ragnar",
+      "item": "Forb Pzeur Armor",
+      "points": 150,
+      "date": "1/18/2026, 10:47:07 PM"
+    },
+    {
+      "name": "KIMCHII",
+      "item": "Forb Bao",
+      "points": 100,
+      "date": "1/18/2026, 10:47:29 PM"
+    },
+    {
+      "name": "Psychopath",
+      "item": "3 Prajati",
+      "points": 30,
+      "date": "1/18/2026, 10:47:47 PM"
+    },
+    {
+      "name": "Whoppy",
+      "item": "Forb Soupy Helm",
+      "points": 150,
+      "date": "1/18/2026, 10:48:09 PM"
+    },
+    {
+      "name": "lazer",
+      "item": "Forb Khrati",
+      "points": 100,
+      "date": "1/18/2026, 10:48:59 PM"
+    },
+    {
+      "name": "TOSH",
+      "item": "Forb Bao",
+      "points": 100,
+      "date": "1/18/2026, 10:49:28 PM"
+    },
+    {
+      "name": "MaoMao",
+      "item": "Forb Soupy Shoes",
+      "points": 150,
+      "date": "1/18/2026, 10:50:18 PM"
+    },
+    {
+      "name": "TheHermit",
+      "item": "Forb Soupy Armor",
+      "points": 150,
+      "date": "1/18/2026, 10:50:33 PM"
     }
   ]
 }
