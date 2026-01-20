@@ -75,7 +75,7 @@
     "GeezMax007": 443,
     "Plumpyyy": 201,
     "KtChang": 221,
-    "Belzebubzzzzz": 465,
+    "Belzebubzzzzz": -35,
     "Ging": 270,
     "DJANGO": 214,
     "PHILIPPINES": 358,
@@ -1625,6 +1625,12 @@
       "item": "15pcs Prajati",
       "points": 150,
       "date": "1/21/2026, 4:24:24 AM"
+    },
+    {
+      "name": "Belzebubzzzzz",
+      "item": "Dark Xtal",
+      "points": 500,
+      "date": "1/21/2026, 4:39:34 AM"
     }
   ]
 }
