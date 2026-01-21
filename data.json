@@ -9,7 +9,7 @@
     "Malignant": 74,
     "PkAshborn": 524,
     "Miso": 89,
-    "Seven": 433,
+    "Seven": 283,
     "Phelation": 649,
     "Kingkoy": 252,
     "Aoife": 40,
@@ -66,7 +66,7 @@
     "KangJaka": 93,
     "Ragnar": 32,
     "ChaosMyth": 32,
-    "IRON": 256,
+    "IRON": 106,
     "Whoppy": 329,
     "Marky": 152,
     "ChinChura": 247,
@@ -1631,6 +1631,18 @@
       "item": "Dark Xtal",
       "points": 500,
       "date": "1/21/2026, 4:39:34 AM"
+    },
+    {
+      "name": "Seven",
+      "item": "15 pcs Prajati",
+      "points": 150,
+      "date": "1/21/2026, 6:31:32 AM"
+    },
+    {
+      "name": "IRON",
+      "item": "15 pcs Prajati",
+      "points": 150,
+      "date": "1/21/2026, 6:31:50 AM"
     }
   ]
 }
