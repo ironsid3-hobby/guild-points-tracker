@@ -24,9 +24,9 @@
     "xHELENA": 256,
     "Gken": 71,
     "TorpedO": 566,
-    "AbuSayaf": 426,
+    "AbuSayaf": 346,
     "Daeva": 342,
-    "FLynnHaritH": 292,
+    "FLynnHaritH": 304,
     "Teso": -19,
     "Minions": 421,
     "ReaLMe": -12,
@@ -51,10 +51,10 @@
     "MaoMao": 539,
     "Vykas": 122,
     "ReginaSpektor": 187,
-    "Shook": 177,
+    "Shook": 127,
     "JaedenMacey": 112,
     "B3nK3n": 84,
-    "KingRagnar": 194,
+    "KingRagnar": 94,
     "Ruby": -104,
     "ABRAVE": -119,
     "Tokyo": -18,
@@ -1722,6 +1722,24 @@
       "item": "Forb Dull weap level 80",
       "points": 100,
       "date": "1/28/2026, 9:02:33 PM"
+    },
+    {
+      "name": "Shook",
+      "item": "5pcs Prajati",
+      "points": 50,
+      "date": "1/28/2026, 9:21:57 PM"
+    },
+    {
+      "name": "AbuSayaf",
+      "item": "8pcs Prajati",
+      "points": 80,
+      "date": "1/28/2026, 9:22:19 PM"
+    },
+    {
+      "name": "KingRagnar",
+      "item": "10 pcs Prajati",
+      "points": 100,
+      "date": "1/28/2026, 9:22:33 PM"
     }
   ]
 }
