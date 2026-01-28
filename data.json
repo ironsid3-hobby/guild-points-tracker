@@ -1,35 +1,35 @@
 {
   "leaderboard": {
     "ItsNotNice0016": 176,
-    "YudaGOD": 681,
+    "YudaGOD": 641,
     "Symphony": 358,
     "Ayeezhu": 384,
     "Shada": 252,
-    "Rixx": -59,
+    "Rixx": -99,
     "Malignant": 95,
     "PkAshborn": 569,
     "Miso": 148,
-    "Seven": 352,
+    "Seven": 202,
     "Phelation": 710,
     "Kingkoy": 329,
     "Aoife": 90,
     "DevilsAdvocate": 108,
     "Itryo": -38,
-    "TIGASIN": 340,
+    "TIGASIN": 300,
     "Haku": 178,
-    "Stussy": 468,
+    "Stussy": 318,
     "wayKAON": 74,
     "SisiG": 262,
-    "waldo": -233,
+    "waldo": -333,
     "xHELENA": 256,
-    "Gken": 221,
+    "Gken": 71,
     "TorpedO": 566,
     "AbuSayaf": 426,
     "Daeva": 342,
     "FLynnHaritH": 292,
     "Teso": -19,
     "Minions": 421,
-    "ReaLMe": 138,
+    "ReaLMe": -12,
     "Skanda": -205,
     "NeiRPlayeR": 152,
     "SYLPHY": -129,
@@ -66,8 +66,8 @@
     "KangJaka": 93,
     "Ragnar": 90,
     "ChaosMyth": 32,
-    "IRON": 185,
-    "Whoppy": 387,
+    "IRON": 35,
+    "Whoppy": 237,
     "Marky": 154,
     "ChinChura": 253,
     "y0cAmAtzZz": 104,
@@ -76,8 +76,8 @@
     "Plumpyyy": 207,
     "KtChang": 250,
     "Belzebubzzzzz": 14,
-    "Ging": 300,
-    "DJANGO": 276,
+    "Ging": 200,
+    "DJANGO": 126,
     "PHILIPPINES": 408,
     "ChuckNorris": 158,
     "HaiLeyOrz": 181,
@@ -87,7 +87,6 @@
     "Bingzuuu": 129,
     "Psychopath": 180,
     "PosetroN": 142,
-    "SianGREY": 309,
     "SirLiOn": 62,
     "rumi": 52,
     "Morp": 231,
@@ -100,7 +99,7 @@
     "Alii": 150,
     "GiyuTomioka": 219,
     "Acnologia": 259,
-    "xKeana": 307,
+    "xKeana": 127,
     "CillianAlejandro": -54,
     "JoNamZ": 64,
     "pechitos": 104,
@@ -112,7 +111,8 @@
     "mamaw": 63,
     "CoupDegrace": 76,
     "CoupDeGrace": 76,
-    "lDielh": 6
+    "lDielh": 6,
+    "GahikA": -100
   },
   "claimHistory": [
     {
@@ -1046,12 +1046,6 @@
       "date": "1/4/2026, 12:45:45 AM"
     },
     {
-      "name": "Alii",
-      "item": "Forb Ratuni",
-      "points": 100,
-      "date": "1/4/2026, 12:46:01 AM"
-    },
-    {
       "name": "MaoMao",
       "item": "Forb Soupy Shoes",
       "points": 150,
@@ -1644,6 +1638,102 @@
       "item": "15 pcs Prajati",
       "points": 150,
       "date": "1/21/2026, 6:31:50 AM"
+    },
+    {
+      "name": "GahikA",
+      "item": "Forb Sunny",
+      "points": 100,
+      "date": "1/28/2026, 8:54:11 PM"
+    },
+    {
+      "name": "DJANGO",
+      "item": "Forb Pzeur Helm",
+      "points": 150,
+      "date": "1/28/2026, 8:55:19 PM"
+    },
+    {
+      "name": "Whoppy",
+      "item": "Forb Soupy Shoes",
+      "points": 150,
+      "date": "1/28/2026, 8:55:40 PM"
+    },
+    {
+      "name": "ReaLMe",
+      "item": "Forb Adier Pants",
+      "points": 150,
+      "date": "1/28/2026, 8:56:11 PM"
+    },
+    {
+      "name": "Gken",
+      "item": "Forb Adier Shoes",
+      "points": 150,
+      "date": "1/28/2026, 8:56:54 PM"
+    },
+    {
+      "name": "Ging",
+      "item": "Forb Bao",
+      "points": 100,
+      "date": "1/28/2026, 8:57:17 PM"
+    },
+    {
+      "name": "waldo",
+      "item": "Forb Khrati",
+      "points": 100,
+      "date": "1/28/2026, 8:57:45 PM"
+    },
+    {
+      "name": "YudaGOD",
+      "item": "4 pcs prajati",
+      "points": 40,
+      "date": "1/28/2026, 8:58:34 PM"
+    },
+    {
+      "name": "Rixx",
+      "item": "4pcs Prajati",
+      "points": 40,
+      "date": "1/28/2026, 8:59:06 PM"
+    },
+    {
+      "name": "Stussy",
+      "item": "Forb Adier Shoes",
+      "points": 150,
+      "date": "1/28/2026, 9:00:28 PM"
+    },
+    {
+      "name": "xKeana",
+      "item": "3pcs Prajati",
+      "points": 30,
+      "date": "1/28/2026, 9:00:51 PM"
+    },
+    {
+      "name": "xKeana",
+      "item": "Forb Adier helm",
+      "points": 150,
+      "date": "1/28/2026, 9:01:09 PM"
+    },
+    {
+      "name": "TIGASIN",
+      "item": "4pcs prajati",
+      "points": 40,
+      "date": "1/28/2026, 9:01:51 PM"
+    },
+    {
+      "name": "Alii",
+      "item": "Forb Dull weap level 80",
+      "points": 100,
+      "date": "1/28/2026, 9:02:33 PM"
+    },
+    {
+      "name": "IRON",
+      "item": "15pcs Prajati",
+      "points": 150,
+      "date": "1/28/2026, 9:04:28 PM"
+    },
+    {
+      "name": "Seven",
+      "item": "15pcs Prajati",
+      "points": 150,
+      "date": "1/28/2026, 9:04:55 PM"
     }
   ]
 }
