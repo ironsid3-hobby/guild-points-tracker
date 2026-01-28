@@ -9,7 +9,7 @@
     "Malignant": 95,
     "PkAshborn": 569,
     "Miso": 148,
-    "Seven": 202,
+    "Seven": 352,
     "Phelation": 710,
     "Kingkoy": 329,
     "Aoife": 90,
@@ -66,7 +66,7 @@
     "KangJaka": 93,
     "Ragnar": 90,
     "ChaosMyth": 32,
-    "IRON": 35,
+    "IRON": 185,
     "Whoppy": 237,
     "Marky": 154,
     "ChinChura": 253,
@@ -1722,18 +1722,6 @@
       "item": "Forb Dull weap level 80",
       "points": 100,
       "date": "1/28/2026, 9:02:33 PM"
-    },
-    {
-      "name": "IRON",
-      "item": "15pcs Prajati",
-      "points": 150,
-      "date": "1/28/2026, 9:04:28 PM"
-    },
-    {
-      "name": "Seven",
-      "item": "15pcs Prajati",
-      "points": 150,
-      "date": "1/28/2026, 9:04:55 PM"
     }
   ]
 }
