@@ -7,7 +7,7 @@
     "Shada": 254,
     "Rixx": -17,
     "Malignant": 147,
-    "PkAshborn": 651,
+    "PkAshborn": 551,
     "Miso": 192,
     "Seven": 416,
     "Phelation": 716,
@@ -22,7 +22,7 @@
     "SisiG": 324,
     "waldo": -313,
     "xHELENA": 234,
-    "Gken": 159,
+    "Gken": 59,
     "TorpedO": 506,
     "AbuSayaf": 412,
     "Daeva": 336,
@@ -39,7 +39,7 @@
     "KharmaX": -189,
     "Zoey": 129,
     "Mamugsitay": -137,
-    "WindRanger": 612,
+    "WindRanger": 562,
     "PinOyAkO": 3,
     "NaTaLee": 574,
     "KIMCHII": 259,
@@ -51,12 +51,12 @@
     "MaoMao": 597,
     "Vykas": 122,
     "ReginaSpektor": 239,
-    "Shook": 203,
+    "Shook": 53,
     "JaedenMacey": 112,
     "B3nK3n": 128,
     "KingRagnar": 162,
     "Ruby": -64,
-    "ABRAVE": -63,
+    "ABRAVE": -213,
     "Tokyo": 2,
     "Reilyn": 182,
     "Sumeru": 202,
@@ -75,12 +75,12 @@
     "GeezMax007": 441,
     "Plumpyyy": 207,
     "KtChang": 254,
-    "Belzebubzzzzz": 38,
+    "Belzebubzzzzz": 18,
     "Ging": 228,
-    "DJANGO": 164,
+    "DJANGO": 14,
     "PHILIPPINES": 408,
     "ChuckNorris": 232,
-    "HaiLeyOrz": 197,
+    "HaiLeyOrz": 97,
     "Asiel": 269,
     "Charlatan": 491,
     "TOSH": -8,
@@ -89,7 +89,7 @@
     "PosetroN": -102,
     "SirLiOn": 82,
     "rumi": 52,
-    "Morp": 289,
+    "Morp": 189,
     "lathaliah": 2,
     "Clumsy": 20,
     "AzR4el": 6,
@@ -107,12 +107,12 @@
     "Psymaa": 133,
     "Flabberga[Z]st": 90,
     "FlabbergaZst": 232,
-    "PicachU": 47,
+    "PicachU": 73,
     "mamaw": 99,
     "CoupDegrace": 134,
     "CoupDeGrace": 134,
-    "lDielh": 6,
-    "GahikA": -100
+    "GahikA": -100,
+    "JDielh": 28
   },
   "claimHistory": [
     {
@@ -1854,6 +1854,60 @@
       "item": "5pcs Prajati",
       "points": 50,
       "date": "2/6/2026, 11:12:34 AM"
+    },
+    {
+      "name": "Belzebubzzzzz",
+      "item": "2 pcs Prajati",
+      "points": 20,
+      "date": "2/9/2026, 2:59:14 AM"
+    },
+    {
+      "name": "PkAshborn",
+      "item": "10pcs Prajati",
+      "points": 100,
+      "date": "2/9/2026, 2:59:36 AM"
+    },
+    {
+      "name": "ABRAVE",
+      "item": "Forb Soupy Helm",
+      "points": 150,
+      "date": "2/9/2026, 3:00:43 AM"
+    },
+    {
+      "name": "Gken",
+      "item": "10 Prajati",
+      "points": 100,
+      "date": "2/9/2026, 3:01:19 AM"
+    },
+    {
+      "name": "Shook",
+      "item": "Forb Soupy Helm",
+      "points": 150,
+      "date": "2/9/2026, 3:02:13 AM"
+    },
+    {
+      "name": "Morp",
+      "item": "forb Bao",
+      "points": 100,
+      "date": "2/9/2026, 3:02:48 AM"
+    },
+    {
+      "name": "HaiLeyOrz",
+      "item": "Forb Ratuni",
+      "points": 100,
+      "date": "2/9/2026, 3:03:59 AM"
+    },
+    {
+      "name": "DJANGO",
+      "item": "Forb Pzeur armor",
+      "points": 150,
+      "date": "2/9/2026, 3:05:17 AM"
+    },
+    {
+      "name": "WindRanger",
+      "item": "5pcs Prajati",
+      "points": 50,
+      "date": "2/9/2026, 3:05:36 AM"
     }
   ]
 }
