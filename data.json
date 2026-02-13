@@ -105,8 +105,7 @@
     "pechitos": 34,
     "Abyzou": 489,
     "Psymaa": 185,
-    "Flabberga[Z]st": -410,
-    "FlabbergaZst": 306,
+    "FlabbergaZst": -194,
     "PicachU": 127,
     "mamaw": -343,
     "CoupDegrace": 134,
@@ -1942,12 +1941,6 @@
       "date": "2/12/2026, 9:08:15 PM"
     },
     {
-      "name": "Flabberga[Z]st",
-      "item": "dx bao",
-      "points": 500,
-      "date": "2/12/2026, 9:08:27 PM"
-    },
-    {
       "name": "MaoMao",
       "item": "dx bao",
       "points": 500,
@@ -1982,6 +1975,12 @@
       "item": "f soupy armor",
       "points": 150,
       "date": "2/12/2026, 9:11:26 PM"
+    },
+    {
+      "name": "FlabbergaZst",
+      "item": "dx bao",
+      "points": 500,
+      "date": "2/13/2026, 9:50:39 AM"
     }
   ]
 }
