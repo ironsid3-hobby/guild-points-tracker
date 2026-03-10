@@ -13,9 +13,9 @@
     "Phelation": 1024,
     "Kingkoy": 529,
     "Aoife": 260,
-    "DevilsAdvocate": 276,
+    "DevilsAdvocate": 76,
     "Itryo": 174,
-    "TIGASIN": 682,
+    "TIGASIN": 632,
     "Haku": 436,
     "Stussy": 140,
     "wayKAON": 74,
@@ -25,20 +25,18 @@
     "Gken": 387,
     "AbuSayaf": 716,
     "Daeva": 568,
-    "FLynnHaritH": 516,
     "Teso": 179,
     "Minions": 327,
     "ReaLMe": 306,
     "Skanda": -157,
-    "NeiRPlayeR": 408,
+    "NeiRPlayeR": 258,
     "SYLPHY": -15,
     "Nyeel": 101,
-    "zSlow": 285,
+    "zSlow": 185,
     "Dreinn": 242,
-    "KharmaX": 61,
-    "Zoey": 227,
+    "Zoey": 37,
     "Mamugsitay": -75,
-    "WindRanger": 166,
+    "WindRanger": 16,
     "PinOyAkO": 163,
     "NaTaLee": 862,
     "KIMCHII": 287,
@@ -65,16 +63,16 @@
     "Ragnar": 38,
     "ChaosMyth": 32,
     "IRON": 329,
-    "Whoppy": -301,
+    "Whoppy": -451,
     "Marky": -72,
     "ChinChura": 253,
     "y0cAmAtzZz": 114,
-    "FLYLOW": -35,
+    "FLYLOW": -335,
     "GeezMax007": 557,
     "Plumpyyy": -231,
     "KtChang": 324,
-    "Belzebubzzzzz": 208,
-    "Ging": 362,
+    "Belzebubzzzzz": 18,
+    "Ging": -138,
     "DJANGO": 254,
     "PHILIPPINES": 604,
     "ChuckNorris": -46,
@@ -82,11 +80,11 @@
     "Asiel": 289,
     "Charlatan": 721,
     "TOSH": 4,
-    "Bingzuuu": 101,
+    "Bingzuuu": -399,
     "Psychopath": 180,
     "PosetroN": 118,
     "rumi": 52,
-    "Morp": 197,
+    "Morp": -303,
     "lathaliah": 2,
     "Clumsy": 20,
     "AzR4el": 6,
@@ -94,7 +92,7 @@
     "lazer": -122,
     "iluvtolick": 4,
     "Alii": 366,
-    "GiyuTomioka": 565,
+    "GiyuTomioka": 415,
     "Acnologia": 209,
     "xKeana": -395,
     "CillianAlejandro": -252,
@@ -106,15 +104,14 @@
     "PicachU": 263,
     "mamaw": -177,
     "GahikA": -92,
-    "JDielh": 246,
+    "JDielh": 96,
     "RODA": -56,
     "Cribz": 360,
     "AshaDewi": -168,
     "BaTaNgPaTiNg": 52,
-    "Canada": 196,
+    "Canada": -304,
     "Charlzki11": 2,
     "DaiSuKi": -78,
-    "Duppztar": 82,
     "EASY": 264,
     "Ehemper": 116,
     "Frenks": 252,
@@ -148,11 +145,15 @@
     "LunaAmarah": 36,
     "PetMaluLodi": 16,
     "ShadowD": 22,
-    "SMIRNOFT": 60,
+    "SMIRNOFT": -440,
     "XiaoYou": 122,
     "YuR13": 36,
     "Zhabrea": 36,
-    "BladiWar": 6
+    "BladiWar": 6,
+    "MARVEL": -739,
+    "crumbl": -134,
+    "ESTAROSSA": 12,
+    "Blessed": 6
   },
   "claimHistory": [
     {
@@ -2416,6 +2417,132 @@
       "item": "forb Adier armor",
       "points": 150,
       "date": "3/6/2026, 2:10:36 PM"
+    },
+    {
+      "name": "GiyuTomioka",
+      "item": "Forb Soupy Helm",
+      "points": 150,
+      "date": "3/10/2026, 10:42:16 AM"
+    },
+    {
+      "name": "JDielh",
+      "item": "forb soupy pants",
+      "points": 150,
+      "date": "3/10/2026, 10:43:24 AM"
+    },
+    {
+      "name": "zSlow",
+      "item": "10pcs prajati",
+      "points": 100,
+      "date": "3/10/2026, 10:43:37 AM"
+    },
+    {
+      "name": "Zoey",
+      "item": "forb soupy helm",
+      "points": 150,
+      "date": "3/10/2026, 10:43:58 AM"
+    },
+    {
+      "name": "Zoey",
+      "item": "4pcs Prajati",
+      "points": 40,
+      "date": "3/10/2026, 10:44:14 AM"
+    },
+    {
+      "name": "NeiRPlayeR",
+      "item": "Forb Soupy shoes",
+      "points": 150,
+      "date": "3/10/2026, 10:44:31 AM"
+    },
+    {
+      "name": "DevilsAdvocate",
+      "item": "Forb Soupy Pants",
+      "points": 150,
+      "date": "3/10/2026, 10:44:49 AM"
+    },
+    {
+      "name": "Morp",
+      "item": "dx stone",
+      "points": 500,
+      "date": "3/10/2026, 10:45:06 AM"
+    },
+    {
+      "name": "Bingzuuu",
+      "item": "dx stone",
+      "points": 500,
+      "date": "3/10/2026, 10:45:41 AM"
+    },
+    {
+      "name": "SMIRNOFT",
+      "item": "dx stone",
+      "points": 500,
+      "date": "3/10/2026, 10:46:01 AM"
+    },
+    {
+      "name": "MARVEL",
+      "item": "5pcs Prajati",
+      "points": 50,
+      "date": "3/10/2026, 10:46:19 AM"
+    },
+    {
+      "name": "MARVEL",
+      "item": "forb pzeur set 750",
+      "points": 750,
+      "date": "3/10/2026, 10:46:49 AM"
+    },
+    {
+      "name": "TIGASIN",
+      "item": "5 pcs prajati",
+      "points": 50,
+      "date": "3/10/2026, 10:47:29 AM"
+    },
+    {
+      "name": "DevilsAdvocate",
+      "item": "5 pcs prajati",
+      "points": 50,
+      "date": "3/10/2026, 10:47:44 AM"
+    },
+    {
+      "name": "Ging",
+      "item": "dx stone",
+      "points": 500,
+      "date": "3/10/2026, 10:47:56 AM"
+    },
+    {
+      "name": "crumbl",
+      "item": "Forb Adier shoes",
+      "points": 150,
+      "date": "3/10/2026, 10:51:27 AM"
+    },
+    {
+      "name": "FLYLOW",
+      "item": "Forb Adier shoes and armor",
+      "points": 300,
+      "date": "3/10/2026, 10:54:20 AM"
+    },
+    {
+      "name": "Canada",
+      "item": "dx stone",
+      "points": 500,
+      "date": "3/10/2026, 10:54:53 AM"
+    },
+    {
+      "name": "Whoppy",
+      "item": "forb khrati",
+      "points": 150,
+      "date": "3/10/2026, 10:55:54 AM"
+    },
+    {
+      "name": "Belzebubzzzzz",
+      "item": "forb Khrati",
+      "points": 150,
+      "date": "3/10/2026, 10:56:39 AM"
+    },
+    {
+      "name": "Belzebubzzzzz",
+      "item": "4pcs prajati",
+      "points": 40,
+      "date": "3/10/2026, 10:57:08 AM"
     }
   ]
 }
